@@ -1,0 +1,10 @@
+[2022-08-08 15:20:54]# Query => Action - add , Queue - theo_ib_92, priority - 5
+
+[2022-08-08 15:20:55]# Query => member => SIP/10508,5
+
+
+[2022-08-08 15:21:38]# Query => Action - add , Queue - theo_ob_default08_93, priority - 5
+
+[2022-08-08 15:21:39]# Query => member => SIP/1050,5
+
+

@@ -1,0 +1,35 @@
+[2022-11-10 11:46:43]# Query => member => SIP/102031,0
+
+
+[2022-11-10 11:46:44]# Query => member => SIP/102031,5
+
+
+[2022-11-10 11:47:14]# Query => member => SIP/102031,0
+
+
+[2022-11-10 11:47:15]# Query => member => SIP/102031,5
+
+
+[2022-11-10 12:12:29]# Query => member => SIP/102043,0
+
+
+[2022-11-10 12:12:29]# Query => member => SIP/102043,5
+
+
+[2022-11-10 12:14:40]# Query => Action - add , Queue - mik_test_inbound_queue_108, priority - 5
+
+[2022-11-10 12:14:40]# Query => member => SIP/102051,5
+
+
+[2022-11-10 12:36:05]# Query => member => SIP/102043,0
+
+
+[2022-11-10 12:36:06]# Query => member => SIP/102043,5
+
+
+[2022-11-10 12:37:58]# Query => member => SIP/102043,0
+
+
+[2022-11-10 12:37:59]# Query => member => SIP/102043,5
+
+

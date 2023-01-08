@@ -1,0 +1,4 @@
+[2022-02-08 17:33:04]# Query => "SELECT * FROM `vaani_role` WHERE `del_status`=1"
+
+[2022-02-08 17:33:27]# Query => "SELECT * FROM `vaani_role` WHERE `del_status`=1"
+

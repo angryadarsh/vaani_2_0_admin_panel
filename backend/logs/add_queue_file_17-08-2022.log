@@ -1,0 +1,31 @@
+[2022-08-17 10:51:43]# Query => Action - add , Queue - aktt_inb_queue_102, priority - 5
+
+[2022-08-17 10:51:44]# Query => member => SIP/31392,5
+
+
+[2022-08-17 10:52:27]# Query => Action - add , Queue - aktt_inb_queue_102, priority - 5
+
+[2022-08-17 10:52:27]# Query => member => SIP/31393,5
+
+
+[2022-08-17 10:52:56]# Query => Action - add , Queue - aktt_inb_queue_102, priority - 5
+
+[2022-08-17 10:52:57]# Query => member => SIP/31394,5
+
+
+[2022-08-17 10:54:24]# Query => Action - add , Queue - aktt_inb_queue_102, priority - 5
+
+[2022-08-17 10:54:24]# Query => member => SIP/31395,5
+
+
+[2022-08-17 10:55:14]# Query => Action - add , Queue - aktt_inb_queue_102, priority - 5
+
+[2022-08-17 10:55:15]# Query => member => SIP/31396,5
+
+
+[2022-08-17 10:55:26]# Query => member => SIP/31396,0
+
+
+[2022-08-17 10:55:27]# Query => member => SIP/31396,5
+
+

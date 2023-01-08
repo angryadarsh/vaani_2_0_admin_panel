@@ -1,0 +1,542 @@
+;context_start
+[mymacro]
+exten => s,1,NoOp(${MEMBERINTERFACE},${unique_id},${CHANNEL},${conf_num},${caller_channel},${client_name})
+exten => s,n,Set(PICKUPOPER=${CALLERID(num)})
+exten => s,n,Set(_queue_blindxfer=${QUEUENAME})
+exten => s,n,Set(_client_name=${client_name})
+exten => s,n,Set(_unique_id=${unique_id})
+exten => s,n,Noop(*** MACRO : Queue Macro : ${ARG1} – ${PICKUPOPER} – ${MEMBERNAME} – ${MEMBERINTERFACE} – ${MEMBERCALLS}- ${MEMBERLASTCALL} ***)
+exten => s,n,Noop(*** QUEUE : Queue Macro : ${ARG1} – ${QUEUENAME} – ${QUEUEMAX} – ${QUEUESTRATEGY} – ${QUEUECALLS}- ${QUEUEHOLDTIME}- ${QUEUECOMPLETED}-${QUEUEABANDONED}-${QEHOLDTIME}****)
+exten => s,n,AGI(edas_inbound_queue_detail.pl,${CALLERID(num)}, ${MEMBERNAME},${MEMBERCALLS},${QUEUENAME},${QUEUESTRATEGY}, ${QUEUECALLS},${QUEUECOMPLETED},${QUEUEABANDONED},${QEHOLDTIME},${unique_id},${MEMBERLASTCALL},${CHANNEL},${client_name})
+
+
+
+[mhl_mum_16]
+exten => _x.,1,NoOp(Started mhl_mum_16 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},metropolis_inb,mhl_mum_16)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;mhl_mum_16_end
+
+[mhl_pun_16]
+exten => _x.,1,NoOp(Started mhl_pun_16 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},metropolis_inb,mhl_pun_16,Metroplis)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;mhl_pun_16_end
+
+[mhl_health_16]
+exten => _x.,1,NoOp(Started mhl_health_16 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},metropolis_inb,mhl_health_16)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;mhl_health_16_end
+
+[mhl_tamil_16]
+exten => _x.,1,NoOp(Started mhl_tamil_16 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},metropolis_inb,mhl_tamil_16)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;mhl_tamil_16_end
+
+[skybags_ind]
+exten => _x.,1,NoOp(Started skybags_ind context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}skybags_ind)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;skybags_ind_end
+
+;sales_india_33_start
+[sales_india_33_time]
+exten => _x.,1,NoOp(In sales_india_33 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-20:00,mon,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,tue,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,wed,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,thu,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,fri,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,sat,*,*?sales_india_33,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,sun,*,*?sales_india_33,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[sales_india_33]
+exten => _x.,1,NoOp(Started sales_india_33 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},skybags_ind,sales_india_33,Skybags)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;sales_india_33_end
+
+[rbl_inb]
+exten => _x.,1,NoOp(Started rbl_inb context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}rbl_inb)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;rbl_inb_end
+
+;rbl_inb_1_34_start
+[rbl_inb_1_34_time]
+exten => _x.,1,NoOp(In rbl_inb_1_34 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-00:00,mon,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,tue,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,tue,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,wed,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,wed,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,thu,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,thu,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,fri,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,fri,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,sat,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,sat,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,sun,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-00:00,sun,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-19:00,mon,*,*?rbl_inb_1_34,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[rbl_inb_1_34]
+exten => _x.,1,NoOp(Started rbl_inb_1_34 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},rbl_inb,rbl_inb_1_34,rbl)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;rbl_inb_1_34_end
+
+;rbl_inb_2_34_start
+[rbl_inb_2_34_time]
+exten => _x.,1,NoOp(In rbl_inb_2_34 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:00,mon,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,tue,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,wed,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,thu,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,fri,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,sat,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:00,sun,*,*?rbl_inb_2_34,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+
+[rbl_inb_2_34]
+exten => _x.,1,NoOp(Started rbl_inb_2_34 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},rbl_inb,rbl_inb_2_34,rbl)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;rbl_inb_2_34_end
+
+[uti]
+exten => _x.,1,NoOp(Started uti context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},uti)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;uti_end
+
+;uti_support_35_start
+[uti_support_35_time]
+exten => _x.,1,NoOp(In uti_support_35 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(09:00-18:00,mon,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(09:00-18:00,tue,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(09:00-18:00,wed,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(09:00-18:00,thu,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(09:00-18:00,fri,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(09:00-18:00,sat,*,*?uti_support_35,_x.,1)
+exten => _x.,n,GotoIfTime(00:00-00:00,sun,*,*?uti_support_35,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[uti_support_35]
+exten => _x.,1,NoOp(Started uti_support_35 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},uti,uti_support_35,uti)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;uti_support_35_end
+
+;uti_fund_35_start
+[uti_fund_35]
+exten => _x.,1,NoOp(Started uti_fund_35 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},uti,uti_fund_35,uti)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;uti_fund_35_end
+
+[aarogya]
+exten => _x.,1,NoOp(Started aarogya context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}aarogya)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;aarogya_end
+
+;range__36_start
+[range__36_time]
+exten => _x.,1,NoOp(In range__36 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-20:00,mon,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,tue,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,wed,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,thu,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,fri,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,sat,*,*?range__36,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-20:00,sun,*,*?range__36,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[range__36]
+exten => _x.,1,NoOp(Started range__36 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},aarogya,range__36,aarogya)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;range__36_end
+
+[subway]
+exten => _x.,1,NoOp(Started subway context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}subway)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;subway_end
+
+;subway__41_start
+[subway__41_time]
+exten => _x.,1,NoOp(In subway__41 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?subway__41,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?subway__41,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[subway__41]
+exten => _x.,1,NoOp(Started subway__41 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},subway,subway__41,subway)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;subway__41_end
+
+
+
+[reliance]
+exten => _x.,1,NoOp(Started reliance context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}reliance)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;reliance_end
+
+;reliance_43_start
+[reliance_43_time]
+exten => _x.,1,NoOp(In reliance_43 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?reliance_43,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?reliance_43,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[reliance_43]
+exten => _x.,1,NoOp(Started reliance_43 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},reliance,reliance_43,reliance)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;reliance_43_end
+
+[testing_edas]
+exten => _x.,1,NoOp(Started testing_edas context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;testing_edas_end
+
+;edas_testing_44_start
+[edas_testing_44_time]
+exten => _x.,1,NoOp(In edas_testing_44 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?edas_testing_44,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[edas_testing_44]
+exten => _x.,1,NoOp(Started edas_testing_44 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},testing_edas,edas_testing_44,testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;edas_testing_44_end
+
+;demo_testing_44_start
+[demo_testing_44_time]
+exten => _x.,1,NoOp(In demo_testing_44 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?demo_testing_44,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[demo_testing_44]
+exten => _x.,1,NoOp(Started demo_testing_44 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},testing_edas,demo_testing_44,testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;demo_testing_44_end
+
+;edas_44_start
+[edas_44_time]
+exten => _x.,1,NoOp(In edas_44 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?edas_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?edas_44,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[edas_44]
+exten => _x.,1,NoOp(Started edas_44 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},testing_edas,edas_44,testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;edas_44_end
+
+;test_44_start
+[test_44_time]
+exten => _x.,1,NoOp(In test_44 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:00-19:20,mon,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,tue,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,wed,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,thu,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,fri,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sat,*,*?test_44,_x.,1)
+exten => _x.,n,GotoIfTime(10:00-19:20,sun,*,*?test_44,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[test_44]
+exten => _x.,1,NoOp(Started test_44 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},testing_edas,test_44,testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;test_44_end
+
+[check_syntax]
+exten => _x.,1,NoOp(Started check_syntax context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL}check_syntax)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;check_syntax_end
+
+;chk_syntx1_45_start
+[chk_syntx1_45_time]
+exten => _x.,1,NoOp(In chk_syntx1_45 time zone)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Kolkata,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(10:03-10:03,mon,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,tue,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,wed,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,thu,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,fri,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,sat,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,GotoIfTime(10:03-10:03,sun,*,*?chk_syntx1_45,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[chk_syntx1_45]
+exten => _x.,1,NoOp(Started chk_syntx1_45 context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Set(_caller_channel=${CHANNEL})
+exten => _x.,n,Set(_start_time=${CDR(start)})
+exten => _x.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},${CHANNEL},check_syntax,chk_syntx1_45,testing_edas)
+exten => _x.,n,Hangup()
+exten => h,1,Noop(Dial status  for ${CID},${UNIQUEID},${MEMBERNAME},${HANGUPCAUSE},${start_time})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(edas_inbound_end_duration.pl,${UNIQUEID},${start_time},${end_time})
+;chk_syntx1_45_end
+;context_end

@@ -1,0 +1,10 @@
+[2022-11-11 13:36:59]# Query => Action - add , Queue - mik_test_inbound_queue_108, priority - 5
+
+[2022-11-11 13:36:59]# Query => member => SIP/102010,5
+
+
+[2022-11-11 15:21:54]# Query => Action - add , Queue - mik_test_inbound_queue_108, priority - 10
+
+[2022-11-11 15:21:54]# Query => member => SIP/30201,10
+
+

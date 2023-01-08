@@ -1,0 +1,52 @@
+[2022-07-29 16:31:45]# Query => member => SIP/60002,0
+
+
+[2022-07-29 16:31:45]# Query => member => SIP/60002,0
+
+
+[2022-07-29 16:31:46]# Query => member => SIP/60002,0
+
+
+[2022-07-29 16:31:47]# Query => member => SIP/60002,0
+
+
+[2022-07-29 16:31:47]# Query => member => SIP/60002,20
+
+
+[2022-07-29 16:31:48]# Query => member => SIP/60002,5
+
+
+[2022-07-29 16:31:49]# Query => member => SIP/60002,5
+
+
+[2022-07-29 16:31:49]# Query => member => SIP/60002,5
+
+
+[2022-07-29 16:32:00]# Query => member => SIP/60003,0
+
+
+[2022-07-29 16:32:01]# Query => member => SIP/60003,0
+
+
+[2022-07-29 16:32:02]# Query => member => SIP/60003,0
+
+
+[2022-07-29 16:32:03]# Query => member => SIP/60003,0
+
+
+[2022-07-29 16:32:04]# Query => member => SIP/60003,5
+
+
+[2022-07-29 16:32:04]# Query => member => SIP/60003,5
+
+
+[2022-07-29 18:14:22]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-07-29 18:14:22]# Query => member => SIP/60007,5
+
+
+[2022-07-29 18:14:47]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-07-29 18:14:48]# Query => member => SIP/60008,5
+
+

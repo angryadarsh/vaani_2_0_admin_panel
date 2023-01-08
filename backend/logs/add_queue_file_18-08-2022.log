@@ -1,0 +1,26 @@
+[2022-08-18 17:34:12]# Query => Action - add , Queue - mhl_sales_103, priority - 5
+
+[2022-08-18 17:34:13]# Query => member => SIP/1348,5
+
+
+[2022-08-18 17:38:26]# Query => Action - add , Queue - mhl_sales_103, priority - 5
+
+[2022-08-18 17:38:26]# Query => member => SIP/1349,5
+
+
+[2022-08-18 17:41:01]# Query => Action - add , Queue - mhl_support_104, priority - 5
+
+[2022-08-18 17:41:02]# Query => member => SIP/1350,5
+
+
+[2022-08-18 17:48:25]# Query => Action - add , Queue - mhl_ob_default34_105, priority - 5
+
+[2022-08-18 17:48:26]# Query => member => SIP/1351,5
+
+
+[2022-08-18 17:53:09]# Query => member => SIP//09819880419,0
+
+
+[2022-08-18 17:53:10]# Query => member => SIP//09819880419,5
+
+

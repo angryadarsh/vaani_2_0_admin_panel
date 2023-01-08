@@ -1,0 +1,55 @@
+[1003]
+username=1003
+secret=1003
+accountcode=1003
+callerid="1003" <1003>
+mailbox=1003
+type=friend
+host=dynamic
+encryption=yes
+avpf=yes
+icesupport=yes
+directmedia=no
+transport=wss
+force_avp=yes
+dtlsenable=yes
+dtlsverify=no
+dtlscertfile=/etc/asterisk/keys/asterisk.crt
+dtlsprivatekey=/etc/asterisk/keys/asterisk.key
+dtlssetup=actpass
+rtcp_mux=yes
+context=outgoing_test
+
+[3020]
+defaultuser=3020
+secret=3020
+accountcode=3020
+callerid="3020" <3020>
+mailbox=3020
+allow=ulaw,alaw
+context=default
+type=friend
+host=dynamic
+
+[0103]
+defaultuser=0103
+secret=0103
+accountcode=0103
+callerid="admin" <0103>
+mailbox=0103
+allow=ulaw,alaw
+context=default
+type=friend
+host=dynamic
+
+[102030]
+defaultuser=102030
+secret=102030
+accountcode=102030
+callerid="MIK_user1_test" <102030>
+mailbox=102030
+allow=ulaw,alaw
+context=default
+type=friend
+host=dynamic
+;user_sip_end

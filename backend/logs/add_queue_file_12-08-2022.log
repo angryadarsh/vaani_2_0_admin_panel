@@ -1,0 +1,11 @@
+[2022-08-12 11:03:34]# Query => Action - add , Queue - aktt_queue_100, priority - 5
+
+[2022-08-12 11:03:35]# Query => member => SIP/310391,5
+
+
+[2022-08-12 11:04:06]# Query => member => SIP/310391,0
+
+
+[2022-08-12 11:04:06]# Query => member => SIP/310391,5
+
+

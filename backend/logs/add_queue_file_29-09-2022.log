@@ -1,0 +1,25 @@
+[2022-09-29 12:16:39]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 5
+
+[2022-09-29 12:19:31]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 5
+
+[2022-09-29 12:19:32]# Query => member => SIP/3020,5
+
+
+[2022-09-29 12:29:04]# Query => member => SIP/3020,0
+
+
+[2022-09-29 12:29:04]# Query => member => SIP/3020,0
+
+
+[2022-09-29 12:29:05]# Query => member => SIP/3020,5
+
+
+[2022-09-29 12:29:06]# Query => member => SIP/3020,5
+
+
+[2022-09-29 12:29:07]# Query => member => SIP/3020,5
+
+
+[2022-09-29 12:29:07]# Query => member => SIP/3020,5
+
+

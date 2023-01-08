@@ -1,0 +1,671 @@
+[globals]
+#include extensions-edas.conf
+
+[general]
+autofallthrough=yes
+
+[from-pstn]
+;did_routing_start
+exten => _+x.,1,Set(DID=${EXTEN})
+exten => _+x.,n,Noop(Entered Inbound setup with Plus sign)
+exten => _+x.,n,Set(called_number=${CALLERID(dnid):-10})
+exten => _+x.,n,GotoIf($["${called_number}"="2241817009"]?support,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817028"]?support_test,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817034"]?sales_india_33_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817035"]?rbl_inb_1_34_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817040"]?rbl_inb_2_34_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817041"]?uti_support_35_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817042"]?uti_fund_35,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817043"]?range__36_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817060"]?edas_demo_40_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817061"]?subway__41_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817063"]?reliance_43_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817064"]?edas_testing_44_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817065"]?demo_testing_44_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817066"]?edas_44_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="2241817068"]?test_44_time,_x.,1)
+exten => _+x.,n,GotoIf($["${called_number}"="233323232"]?chk_syntx1_45_time,_x.,1)
+;did_routing_end
+exten => _x..,n,Hangup()
+
+;exten => *11ZXXX,1,PauseQueueMember(SIP/${EXTEN});
+[create_conf]
+exten => _x.,1,Macro(create_conference)
+
+[inbound_calls]
+exten => _x.,1,Macro(join_conference)
+
+[manual_oncall]
+exten => _x.,1,Set(CID=${CALLERID(num)})
+exten => _x.,n,Goto(s,1)
+exten => s,1,AGI(manual_oncall.pl,${DID})
+exten => s,n,Hangup()
+
+[incoming1]
+exten = 7777,1,verbose(1, "User ${CALLERID(num)} dialed extension 7777. testing Google Speech Recognition")
+ same = n,noop(CHANNEL(audioreadformat) : ${CHANNEL(audioreadformat)})
+ same = n,answer
+ same = n,execif($[ "${CHANNEL(audioreadformat)}" = "opus" ]?set(EAGI_AUDIO_FORMAT=slin48):noop(Won't set EAGI_AUDIO_FORMAT))
+ same = n,eagi(transcribeWithGoogle.eagi,en-IN,10)
+ same = n,noop(GOOGLE_TRANSCRIPTION_RESULT : ${GOOGLE_TRANSCRIPTION_RESULT})
+ same = n,hangup()
+
+[eos_meetme]
+exten => _x.,1,Meetme(8600051,F)
+exten => _x.,n,Hangup()
+
+[support]
+exten => _x.,1,NoOp(In EDAS Support)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Calcutta,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(09:00-21:00,sun-sat,*,*?working_hour,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[support_test]
+exten => _x.,1,NoOp(In EDAS Support)
+exten => _x.,n,Set(_CALLTIME=${STRFTIME(,Asia/Calcutta,%d-%b-%y-%H-%M-%S)})
+exten => _x.,n,GotoIfTime(09:00-21:00,wed,*,*?working_hour,_x.,1)
+exten => _x.,n,Playback(Ivr/edas/edas_support_non_working_hours)
+exten => _x.,n,Hangup()
+
+[working_hour]
+exten => _x.,1,NoOp(In Working hour section)
+exten => _x.,n,Playback(Ivr/edas/TransferEdasSupport)
+;exten => _x.,n,Set(CALLERID(num)=+912241817009)
+exten => _x.,n,Dial(SIP/72341)
+;exten => _x.,n,Set(CALLERID(num)=+912241817009)
+;exten =>_x.,n,Dial(SIP/09969199321@airtelsip,30,r)
+exten => _x.,n,Hangup()
+exten => 300,n,Goto(outgoing,_x.,1)
+exten => 300,n,Hangup()
+
+[outgoing]
+exten => _x.,1,NoOp(inside outgoing)
+exten => _x.,n,Set(CALLERID(num)=912241817009)
+;exten => _x.,n,Monitor(wav,${EXTEN},mb)
+exten => _x.,n,Dial(SIP/${EXTEN}@airtelsip)
+
+[incoming]
+exten => _x.,1,NoOp()
+same =>      n,Answer()
+same =>      n,Stasis(hello-world)
+same =>      n,Hangup()
+
+exten => 8888,1,NoOp()
+ same =>      n,Answer()
+ same =>      n,Stasis(stt)
+ same =>      n,Hangup()
+
+exten => 1000,1,NoOp()
+ same =>      n,Answer()
+ same =>      n,Stasis(channel-dump)
+ same =>      n,Hangup()
+
+[test_incoming]
+exten => _x.,1,NoOp()
+same =>      n,Answer()
+same =>      n,PlayBack(demo-echotest)
+;same =>      n,Goto(test_incoming2,_x.,1)
+same =>      n,Hangup()
+
+[test_incoming2]
+exten => _x.,1,NoOp()
+same =>      n,Answer()
+same =>      n,PlayBack(demo-enterkeywords)
+same =>      n,Hangup()
+
+[edastest]
+exten => _x.,1,Set(CID=${CALLERID(num)})
+exten => _x.,n,Goto(s,1)
+;exten => s,1,AGI(edas_test.pl,${DID})
+exten => s,1,AGI(edas_inbound_start_script.pl,${DID})
+exten => s,n,Hangup()
+
+[twoleg_dial]
+exten => _x.,1,NoOp(Uniqueid is ${unique_id})
+exten => _x.,n,Set(number_dialed=${CUT(PassedInfo,,1)})
+exten => _x.,n,Goto(s,1)
+exten => s,1,AGI(twoleg_dial.pl,${number_dialed})
+exten => s,n,Hangup()
+
+[conference_admin]
+exten => _x.,1,NoOp(In conf admin unique_id = ${unique_id},${conf_num},${start_time},${queue_name},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,admin_user)
+exten => h,1,NoOp(In conference end in admin)
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(conference_end.pl,${unique_id},${start_time},${end_time},${client_name})
+
+
+[conference_user]
+exten => _x.,1,NoOp(In conf num in user is = ${conf_num},${unique_id},${queue_name},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,Set(_client_name= ${client_name})
+exten => _x.,n,AGI(send_param.pl,${unique_id},${conf_num},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+
+[conference3_user]
+exten => _x.,1,NoOp(In conf num in user is = ${conf_num}, ${unique_id},${queue_name},${client_name})
+exten => _x.,n,AGI(send_param.pl,${unique_id},${conf_num},${queue_name},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,Set(_conference_channel=${conf_num})
+exten => _x.,n,Set(_queue_name=${queue_name})
+exten => _x.,n,Set(_client_name=${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+exten => h,1,NoOp(${Mob},${CHANNEL},${unique_id},${conf_num})
+exten => h,n,AGI(conference_no_hangup.pl,${CHANNEL},${unique_id},${conference_channel},${queue_name},${client_name})
+
+[conference_consult_user]
+exten => _x.,1,NoOp(In conf num in user is = ${conf_num},${unique_id},${CHANNEL},${Mob},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,AGI(conf_consult.pl,${unique_id},${conf_num},${Mob},${CHANNEL},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+
+[conference_consult_inbound]
+exten => _x.,1,NoOp(In conf num in user is = ${conf_num}, ${unique_id},${CHANNEL},${Mob},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,AGI(conf_consult_inbound.pl,${unique_id},${conf_num},${Mob},${CHANNEL},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+
+[conference_3way_manual]
+exten => _x.,1,NoOp(In conf 3way manual num in user is = ${conf_num}, ${unique_id},${CHANNEL},${Mob},${queue_name},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,Set(_conference_channel=${conf_num})
+exten => _x.,n,AGI(conf_3way_manual.pl,${unique_id},${conf_num},${Mob},${CHANNEL},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+exten => h,1,NoOp(Not picked ${Mob},${CHANNEL},${unique_id},${conf_num})
+exten => h,n,AGI(conference_user_hangup.pl,${Mob},${CHANNEL},${unique_id},${conference_channel},${client_name})
+
+[conference_3way_inbound]
+exten => _x.,1,NoOp(In conf 3way inbound num in user is = ${conf_num}, ${unique_id},${CHANNEL},${Mob},${client_name})
+exten => _x.,n,Set(_transfer_uniqueid= ${unique_id})
+exten => _x.,n,Set(_conference_channel=${conf_num})
+exten => _x.,n,AGI(conf_3way_inbound.pl,${unique_id},${conf_num},${Mob},${CHANNEL},${client_name})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+exten => h,1,NoOp(${Mob},${CHANNEL},${unique_id},${conf_num})
+exten => h,n,AGI(conference_user_hangup.pl,${Mob},${CHANNEL},${unique_id},${conference_channel},${client_name})
+
+
+[conference_transfer]
+exten => _x.,1,NoOp(${Mob},${CHANNEL},${unique_id},${customer_num},${customer_channel},${campaign_name},${queue_name},${client_name})
+exten => _x.,n,AGI(get_conferenceid.pl,${Mob},${CHANNEL},${unique_id},${customer_num},${customer_channel},${campaign_name},${queue_name},${client_name})
+exten => _x.,n,NoOp(Conference id is ${conf_num})
+exten => _x.,n,Progress()
+exten => _x.,n,Wait(1)
+exten => _x.,n,ConfBridge(${conf_num},default_bridge,default_user)
+exten => _x.,n,Hangup()
+exten => h,1,NoOp(In Transfer status Uniqueid is ${unique_id},${client_name})
+exten => h,n,AGI(conference_transfer_status.pl,${unique_id},${client_name})
+exten => h,n,System(/sbin/asterisk -rx "confbridge kick ${conf_num} all")
+
+
+[macro-create_conference]
+exten => s,1,Set(__CONFERENCENUM=${RAND(9001,9999)})
+same => n,GotoIf($[${GROUP_COUNT(${CONFERENCENUM}@conference)} > 0] ? 1)
+same => n,Set(GROUP(conference)=${CONFERENCENUM})
+;same => n,Playback(conf-youareinconfnum)
+same => n,SayDigits(${CONFERENCENUM})
+same => n,ConfBridge(${CONFERENCENUM},my_bridge,my_user)
+;exten => s,1,Set(__CONFERENCENUM=9002)
+;same => n,GotoIf($[${GROUP_COUNT(${CONFERENCENUM}@conference)} > 0] ? 1)
+;same => n,Set(GROUP(conference)=${CONFERENCENUM})
+;same => n,SayDigits(${CONFERENCENUM})
+;same => n,ConfBridge(${CONFERENCENUM},my_bridge,my_user)
+
+
+[macro-join_conference]
+exten => s,1,Read(CONFERENCENUM,enter-conf-call-number,4)
+same => n,GotoIf($[${GROUP_COUNT(${CONFERENCENUM}@conference)} == 0] ? 10)
+same => n,ConfBridge(${CONFERENCENUM},default_bridge,admin_user)
+same => 10,Playback(conf-invalid)
+same => 11,Goto(1)
+;exten => s,1,NoOp("Inside Conference")
+;same => n,ConfBridge(9002,default_bridge,admin_user)
+;same => 10,Playback(conf-invalid)
+;same => 11,Goto(1)
+
+[out_call]
+exten => _x.,1,NoOp()
+exten => _x.,1,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(CALLERID(num)=+912241817009)
+
+exten => _x.,n,Goto(s,1)
+exten => s,1,AGI(outbound.pl,${DID})
+exten => s,n,Hangup()
+
+[waitforscript]
+exten => s,1,Dial(local/100@somescript,60,m)
+
+[somescript]
+exten => s,1,Ringing
+exten => s,n,System(' .. something which takes a lot of work ..')
+exten => s,n,Answer()
+
+;[outbound_dial]
+;exten => _x.,1,NoOp()
+;same => n,Set(number_dialed=${CUT(PassedInfo,,1)})
+;exten => _x.,n,Goto(s,1)
+;exten => s,1,AGI(outbound_dial.pl,${number_dialed})
+;same  => n,Hangup()
+
+[macro-mymacro1]
+exten => s,1,NoOp(${MEMBERINTERFACE},${unique_id})
+exten => s,n,Set(PICKUPOPER=${CALLERID(num)})
+;exten => s,n,Noop(*** MACRO : Queue Macro : ${ARG1} – ${PICKUPOPER} – ${MEMBERNAME} – ${MEMBERINTERFACE} – ${MEMBERCALLS}- ${MEMBERLASTCALL} ***)
+;exten => s,n,Noop(*** QUEUE : Queue Macro : ${ARG1} – ${QUEUENAME} – ${QUEUEMAX} – ${QUEUESTRATEGY} – ${QUEUECALLS}- ${QUEUEHOLDTIME}- ${QUEUECOMPLETED}-${QUEUEABANDONED}-${QEHOLDTIME}****)
+;exten => s,n,AGI(edas_inbound_queue_detail.pl,${CALLERID(num)}, ${MEMBERNAME},${MEMBERCALLS},${QUEUENAME},${QUEUESTRATEGY}, ${QUEUECALLS},${QUEUECOMPLETED},${QUEUEABANDONED},${QEHOLDTIME},${unique_id},${MEMBERLASTCALL})
+exten => s,n,Progress()
+exten => s.,n,Playback(Ivr/edas/edas_campaign/Welcome)
+exten => s,n,Wait(1)
+exten => s,n,ConfBridge(1,default_bridge,admin_user)
+
+
+[queues]
+exten => _x.,1,NoOp(Sales Team)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,Noop(Callerid is : ${CALLERID(num)})
+exten => _x.,n,Answer()
+exten => _x.,n,Set(HNGPPARTY=AGENT)
+exten => _x.,n,Queue(sales,tT,,,60,)
+;exten => _x.,n,ExecIf($["${QUEUESTATUS}" =="CONTINUE"]?Set(HNGPPARTY=AGENT):Set(HNGPPARTY=))
+exten => _x.,n,Hangup()
+exten => h,1,NoOp(${HNGPPARTY},${QUEUESTATUS})
+;exten =>h,1,NoOp(MY SUPPORT AGENT IS : ${MEMBERINTERFACE} ${MEMBERNAME})
+;exten => h,1,Noop(*** MACRO : Queue Macro : ${ARG1} – ${PICKUPOPER} – ${MEMBERNAME} – ${MEMBERINTERFACE} – ${MEMBERCALLS}- ${MEMBERLASTCALL} ***)
+;exten => h,n,Noop(*** QUEUE : Queue Macro : ${ARG1} – ${QUEUENAME} – ${QUEUEMAX} – ${QUEUESTRATEGY} – ${QUEUECALLS}- ${QUEUEHOLDTIME}- ${QUEUECOMPLETED}-${QUEUEABANDONED}****)
+;exten => h,n,AGI(edas_inbound_detail.pl,${pickupoper}, ${MEMBERNAME},${MEMBERCALLS},${QUEUENAME},${QUEUESTRATEGY}, ${QUEUECALLS},${QUEUECOMPLETED},${QUEUEABANDONED},${unique_id})
+
+[inbound_call2]
+exten => _x.,1,NoOp(Inside inbound call context)
+exten => _x.,n,Set(CID=${CALLERID(num)})
+exten => _x.,n,Set(_unique_id=${UNIQUEID})
+exten => _x.,n,AGI(edas_inbound_entry.pl,${DID},${UNIQUEID},Up_Sales)
+;exten => _x.,n,AGI(edas_inbound_start_script.pl,${DID},${UNIQUEID},Up_Sales)
+exten => _x.,n,Hangup()
+;exten => h,1,Noop(Dial status  for ${CID} is ${DIALSTATUS})
+;exten => h,n,AGI(edas_inbound_end.pl,${CID},${DIALSTATUS})
+
+[sip_testcall]
+exten => _x.,1,NoOp()
+exten => _x.,n,Set(CALLERID(num)=+912241817000)
+exten =>_x.,n,Dial(SIP/08369854211@airtelsip, 30, r)
+exten => _x.,n,Hangup()
+
+[testcall]
+exten => _x.,1,NoOp()
+;exten => _x.,n,Set(CALLERID(num)=+912269078500)
+exten =>_x.,n,Dial(SIP/${EXTEN},30,tT)
+exten => _x.,n,Hangup()
+
+[macro-TransferCall]
+exten => _x.,1,NoOp()
+exten => _x.,n,Dial(SIP/${EXTEN},30,tT)
+
+[macro-testcall]
+;exten => _x.,1,NoOp()
+exten =>s,1,Dial(SIP/115184,30)
+exten => s,n,Hangup()
+
+[listen]
+exten => _x.,1,Macro(user-callerid,)
+exten => _x.,n,Answer
+exten => _x.,n,NoCDR
+exten => _x.,n,Wait(1)
+exten => _x.,n,ChanSpy(SIP/${EXTEN},q)
+exten => _x.,n,Hangup
+
+[whisper]
+exten => _x.,1,Macro(whisper mode)
+exten => _x.,n,Answer
+exten => _x.,n,NoCDR
+exten => _x.,n,Wait(1)
+exten => _x.,n,ChanSpy(SIP/${EXTEN},qw)
+exten => _x.,n,Hangup
+
+[barge]
+exten => _x.,1,Macro(barge)
+exten => _x.,n,Answer
+exten => _x.,n,NoCDR
+exten => _x.,n,Wait(1)
+exten => _x.,n,ChanSpy(SIP/${EXTEN},qB)
+exten => _x.,n,Hangup
+
+[speech_recog]
+exten => _x.,1,Set(CID=${CALLERID(num)})
+exten => _x.,n,Goto(s,1)
+exten => s,1,AGI(speech_recog_azure.pl,${DID})
+exten => s,n,Hangup()
+
+[consult_inbexternal]
+exten => _102X.,1,Set(CALLERID(num)=+912241817000)
+exten => _102X.,n,NoOp(In Consult inbound external ${unique_id},${CHANNEL},${client_name})
+exten => _102X.,n,Set(_client_name=${client_name})
+exten => _102X.,n,Set(_unique_id=${unique_id})
+exten => _102X.,n,AGI(consult_inbexternal.pl,${client_name},${EXTEN:3})
+;exten => _102X.,n,Dial(SIP/${EXTEN:3}@airtelsip,30,U(consult_inbound))
+exten => _102X.,n,Hangup()
+
+[consult_inbinternal]
+exten => _103X.,1,NoOp(In COnsult inbound internal ${unique_id},${CHANNEL},${client_name})
+exten => _103X.,n,Set(_client_name=${client_name})
+exten => _103X.,n,Dial(SIP/${EXTEN:3},30,tTU(consult_inbound))
+exten => _103X.,n,NoOp(In Consult Channel ${unique_id},${CHANNEL})
+exten => _103X.,n,Hangup()
+exten => h,1,NoOp(consult inbound end,${unique_id},${client_name})
+exten => h,n,AGI(consult_dialstaus_end.pl,${unique_id},${client_name})
+
+[consult_maninternal]
+exten => _104X.,1,NoOp(In Consult section internal ${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+exten => _104X.,n,Set(_consult_id=${EXTEN:3})
+exten => _104X.,n,Set(_client_name=${client_name})
+exten => _104X.,n,AGI(consult_manual_internal.pl,${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+exten => _104X.,n,Dial(SIP/${EXTEN:3},30,tTU(consult_status))
+exten => h,1,NoOp(consult manual internal end,${unique_id},${client_name})
+exten => h,n,AGI(consult_dialstaus_end.pl,${unique_id},${client_name})
+
+[consult_manexternal]
+exten => _204X.,1,Set(CALLERID(num)=+912241817000)
+exten => _204X.,n,NoOp(In Consult Section external ${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+exten => _204X.,n,Set(_consult_id=${EXTEN:3})
+exten => _204X.,n,Set(_client_name=${client_name})
+exten => _204X.,n,AGI(consult_manual.pl,${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+;exten => _204X.,n,Dial(SIP/${EXTEN:3}@airtelsip,30,tTU(consult_status))
+
+;exten => _204X.,n,Hangup()
+
+[blindtransfer_campmanual]
+exten => _x.,1,Set(CALLERID(num)=+912241817000)
+exten => _x.,n,NoOp(In Blind Transfer campaign manual ${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+exten => _x.,n,Set(_unique_id=${unique_id})
+exten => _x.,n,Set(_transfer_channel=${CHANNEL})
+exten => _x.,n,AGI(get_queuename.pl,${unique_id},${client_name})
+exten => _x.,n,NoOp(Queue name is ${queue_name})
+exten => _x.,n,Queue(${queue_name},tT,,,60,,,macro_queue)
+exten => h,1,NoOp(blindtransfer manual campaign end,${unique_id},${client_name})
+exten => h,n,NoOp(transfer manual end,${unique_id},${client_name})
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${client_name})
+
+[macro_queue]
+exten => s,1,NoOp(${MEMBERINTERFACE},${unique_id},${CHANNEL},${conf_num},${caller_channel},${transfer_channel},${client_name})
+exten => s,n,Set(PICKUPOPER=${CALLERID(num)})
+exten => s,n,Noop(*** MACRO : Queue Macro : ${ARG1} – ${PICKUPOPER} – ${MEMBERNAME} – ${MEMBERINTERFACE} – ${MEMBERCALLS}- ${MEMBERLASTCALL} ***)
+exten => s,n,Noop(*** QUEUE : Queue Macro : ${ARG1} – ${QUEUENAME} – ${QUEUEMAX} – ${QUEUESTRATEGY} – ${QUEUECALLS}- ${QUEUEHOLDTIME}- ${QUEUECOMPLETED}-${QUEUEABANDONED}-${QEHOLDTIME}****)
+exten => s,n,AGI(edas_blindtransfer_queue.pl,${CALLERID(num)}, ${MEMBERNAME},${MEMBERCALLS},${QUEUENAME},${QUEUESTRATEGY}, ${QUEUECALLS},${QUEUECOMPLETED},${QUEUEABANDONED},${QEHOLDTIME},${unique_id},${MEMBERLASTCALL},${CHANNEL},${transfer_channel},${client_name})
+
+[blindtransfer_campinbound]
+exten => _x.,1,Set(CALLERID(num)=+912241817000)
+exten => _x.,n,NoOp(In Blind Transfer campaign manual ${unique_id},${CHANNEL},${EXTEN:3},${client_name})
+exten => _x.,n,Set(_unique_id=${unique_id})
+exten => _x.,n,Set(_transfer_channel=${CHANNEL})
+exten => _x.,n,AGI(get_queuename.pl,${unique_id},${client_name})
+exten => _x.,n,NoOp(Queue name is ${queue_name})
+exten => _x.,n,Queue(${queue_name},tT,,,60,,,macro_queueinb)
+exten => h,1,NoOp(blindtransfer manual campaign end,${unique_id},${client_name})
+exten => h,n,NoOp(transfer manual end,${unique_id})
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${client_name})
+
+[macro_queueinb]
+exten => s,1,NoOp(${MEMBERINTERFACE},${unique_id},${CHANNEL},${conf_num},${caller_channel},${transfer_channel},${client_name})
+exten => s,n,Set(PICKUPOPER=${CALLERID(num)})
+exten => s,n,Noop(*** MACRO : Queue Macro : ${ARG1} – ${PICKUPOPER} – ${MEMBERNAME} – ${MEMBERINTERFACE} – ${MEMBERCALLS}- ${MEMBERLASTCALL} ***)
+exten => s,n,Noop(*** QUEUE : Queue Macro : ${ARG1} – ${QUEUENAME} – ${QUEUEMAX} – ${QUEUESTRATEGY} – ${QUEUECALLS}- ${QUEUEHOLDTIME}- ${QUEUECOMPLETED}-${QUEUEABANDONED}-${QEHOLDTIME}****)
+exten => s,n,AGI(edas_blindtransfer_inbqueue.pl,${CALLERID(num)}, ${MEMBERNAME},${MEMBERCALLS},${QUEUENAME},${QUEUESTRATEGY}, ${QUEUECALLS},${QUEUECOMPLETED},${QUEUEABANDONED},${QEHOLDTIME},${unique_id},${MEMBERLASTCALL},${CHANNEL},${transfer_channel},${client_name})
+
+
+[blindtransfer_inb]
+exten => _205X.,1,Set(CALLERID(num)=+912241817000)
+exten => _205X.,n,NoOp(In Blind Transfer inbound ${unique_id},${CHANNEL},${queue_name},${client_name},${start_time})
+exten => _205X.,n,Set(_queue_transfer_name=${queue_name})
+exten => _205X.,n,Set(_client_name=${client_name})
+;exten => _205X.,n,Dial(SIP/${EXTEN:3}@airtelsip,30,U(transfer_inbound))
+exten => _205X.,n,AGI(blindtransfer_inb.pl,${client_name},${EXTEN:3})
+exten => _205X.,n,Hangup()
+exten => h,1,NoOp(transfer inbound end,${unique_id},${queue_transfer_name})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${queue_transfer_name},${client_name},${start_time},${end_time})
+
+exten => _206X.,1,NoOp(In Blind Transfer inbound ${unique_id},${CHANNEL},${queue_name},${client_name})
+exten => _206X.,n,Set(_queue_transfer_name=${queue_name})
+exten => _206X.,n,Set(_client_name=${client_name})
+exten => _206X.,n,Dial(SIP/${EXTEN:3},30,tTU(transfer_inbound))
+exten => _206X.,n,NoOp(In Transfer Channel ${unique_id},${CHANNEL})
+exten => _206X.,n,Hangup()
+exten => h,1,NoOp(transfer inbound end,${unique_id})
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${queue_transfer_name},${client_name})
+
+[blindtransfer_man]
+exten => _207X.,1,Set(CALLERID(num)=+912241817000)
+exten => _207X.,n,NoOp(In Blind Transfer Manual ${unique_id},${CHANNEL},${EXTEN:3},${queue_man},${client_name})
+exten => _207X.,n,Set(_transfer_id=${EXTEN:3})
+exten => _207X.,n,AGI(transfer_manual.pl,${unique_id},${CHANNEL},${EXTEN:3},${queue_man},${client_name})
+exten => _207X.,n,AGI(blindtransfer_manual.pl,${client_name},${EXTEN:3})
+;exten => _207X.,n,Dial(SIP/${EXTEN:3}@airtelsip,30,tTU(transfer_status))
+exten => _207X.,n,Hangup()
+exten => h,1,NoOp(transfer manual end,${unique_id},${queue_man},${client_name})       ;Added on 07-02-2022 as removed from default
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${queue_man},${client_name})
+
+exten => _208X.,1,NoOp(In Blind Transfer Manual SIP ${unique_id},${CHANNEL},${EXTEN:3},${queue_man},${client_name})
+exten => _208X.,n,Set(_transfer_id=${EXTEN:3})
+exten => _208X.,n,AGI(transfer_manual.pl,${unique_id},${CHANNEL},${EXTEN:3},${queue_man},${client_name})
+exten => _208X.,n,Dial(SIP/${EXTEN:3},30,tTU(transfer_status))
+exten => _208X.,n,NoOp(In Transfer Channel ${unique_id},${CHANNEL})
+exten => h,1,NoOp(transfer manual end,${unique_id},${queue_man},${client_name})       ;Added on 07-02-2022 as removed from default
+exten => h,n,AGI(transfer_dialstatus_end.pl,${unique_id},${queue_man},${client_name})
+
+[hold_call]
+exten => 209,1,Answer()
+exten => 209,n,NoOp(Putting call on hold ${unique_id},${conf_num},${start_time},${queue_name},${client_name})
+exten => 209,n,Set(_conference_channel=${conf_num})
+exten => 209,n,Set(_client_name=${client_name})
+exten => 209,n,AGI(update_holdstatus.pl,${unique_id},${conf_num},${queue_name},${client_name})
+exten => 209,n,MusicOnHold()
+exten => h,1,NoOp(in hold call end status ${conference_channel},${unique_id})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(disconnect_onhold.pl,${unique_id},${start_time},${end_time},${client_name})
+
+
+[monitor]
+exten => _211X.,1,NoOp(In listen mode ,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _211X.,n,Set(_start_time=${CDR(start)})
+exten => _211X.,n,Answer()
+exten => _211X.,n,AGI(supervisor_detail_monitor.pl,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _211X.,n,Wait(1)
+exten => _211X.,n,ChanSpy(SIP/${EXTEN:3},q)
+exten => _211X.,n,Hangup()
+exten => h,1,NoOp(End of monitor,${unique_id})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(supervisor_detail_end.pl,${unique_id},${start_time},${end_time},${client_name})
+
+exten => _212X.,1,NoOp(In whisper mode ,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _212X.,n,Set(_start_time=${CDR(start)})
+exten => _212X.,n,Answer()
+exten => _212X.,n,AGI(supervisor_detail_whisper.pl,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _212X.,n,Wait(1)
+exten => _212X.,n,ChanSpy(SIP/${EXTEN:3},qw)
+exten => _212X.,n,Hangup()
+
+
+exten => _213X.,1,NoOp(In Bargin mode ,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _213X.,n,Set(_start_time=${CDR(start)})
+exten => _213X.,n,Answer()
+exten => _213X.,n,AGI(supervisor_detail_bargin.pl,${sup_no},${CHANNEL},${unique_id},${agent_id},${client_name})
+exten => _213X.,n,Wait(1)
+exten => _213X.,n,ChanSpy(SIP/${EXTEN:3},qB)
+exten => _213X.,n,Hangup()
+
+
+
+[default]
+exten => 200,1,NoOp(in PauseQueue section ${CALLERID(num)})
+same =>n,PauseQueueMember(,SIP/${CALLERID(num)})
+same =>n,Hangup
+
+exten => 201,1,NoOp(in UnPauseQueue section ${CALLERID(num)})
+same =>n,UnpauseQueueMember(,SIP/${CALLERID(num)})
+same =>n,Hangup
+
+exten => 202,1,NoOp(in AddQueue section ${CALLERID(num)})
+same =>n,AddQueueMember(sales,SIP/${CALLERID(num)})
+same =>n,Hangup
+
+exten => 203,1,NoOp(in RemoveQueue section ${CALLERID(num)})
+same =>n,RemoveQueueMember(sales,SIP/${CALLERID(num)})
+same =>n,Hangup
+
+[pbx_feature]
+exten => _0X.,1,Dial(SIP/${EXTEN}@airtelsip,30,tT)
+exten => _0X.,n,Hangup()
+
+;For putting call on hold
+;exten => 209,1,Answer()
+;exten => 209,n,NoOp(Putting call on hold ${unique_id},${conf_num})
+;exten => 209,n,AGI(update_holdstatus.pl,${unique_id},${conf_num})
+;exten => 209,n,MusicOnHold()
+;exten => h,1,Hangup()
+;exten => h,1,System(/sbin/asterisk -rx "confbridge kick ${conf_num} all")
+
+exten => 210,1,Answer()
+
+exten => 1000,1,NoOp()
+same =>      n,Answer()
+same =>      n,Stasis(hello-world)
+same =>      n,Hangup()
+
+[transfer_inbound]
+exten => s,1,NoOp(In BlindTransfer channel in transfer inbound ${unique_id},${CHANNEL},${queue_transfer_name},${client_name})
+exten => s,n,AGI(transfer_dialstatus.pl,${unique_id},${CHANNEL},${queue_transfer_name},${client_name})
+;exten => s,n,Hangup()
+;exten => h,1,NoOp(transfer inbound end)
+
+[consult_inbound]
+exten => s,1,NoOp(In Consult Inbound channel is ${unique_id},${CHANNEL},${client_name})
+exten => s,n,AGI(consult_dialstatus.pl,${unique_id},${CHANNEL},${client_name})
+
+[transfer_status]
+exten => s,1,NoOp(In BlindTransfer manual channel status is ${transfer_id}, ${CHANNEL},${queue_man},${client_name})
+exten => s,n,AGI(transfer_status.pl,${transfer_id},${CHANNEL},${queue_man},${client_name})
+
+[consult_status]
+exten => s,1,NoOp(In Consult manual channel status is ${consult_id}, ${CHANNEL},${client_name})
+exten => s,n,AGI(consult_status.pl,${consult_id},${CHANNEL},${client_name})
+
+
+[dial_status]
+exten => s,1,NoOp(Inside Dial Status ${unique_id},${CHANNEL},${queue_man},${client_name})
+exten => s,n,Set(_queue_man=${queue_man})
+exten => s,n,Set(_client_name=${client_name})
+exten => s,n,AGI(manual_answer.pl,${unique_id},${CHANNEL},${queue_man},${client_name})
+
+;=============Manual Call========================
+[Manual_call]
+exten => _0X.,1,NoOp(${EXTEN},${CHANNEL},${unique_originalid},${call_type},${client_name})
+exten => _0X.,n,Set(_unique_id=${UNIQUEID})
+exten => _0X.,n,Set(_unique_originalid=${unique_originalid})
+exten => _0X.,n,Set(_call_type=${call_type})
+exten => _0X.,n,Set(_client_name=${client_name})
+exten => _0X.,n,Set(_conf_num=${RAND(9001,9999)})
+exten => _0X.,n,Goto(manual_dial,${EXTEN},1)
+
+[manual_dial]
+exten => _X.,1,NoOp(Unique id is ,${unique_id},${CHANNEL},${conf_num},${campaign_name},${queue_name},${unique_originalid},${call_type},${client_name},${agent_id})
+exten => _X.,1,Set(CALLERID(num)=+912241817000)
+exten => _X.,n,Set(_start_time=${CDR(start)})
+exten => _X.,n,Set(_queue_man=${queue_name})
+exten => _X.,n,AGI(manual_dial.pl,${EXTEN},${unique_id},${CHANNEL},${campaign_name},${queue_name},${unique_originalid},${call_type},${client_name},${agent_id})
+;exten => _X.,n,Set(HANGUP_OWNER=Callee)
+;exten => _X.,n,NoOp(Caller Hangup)
+exten => _X.,n,Hangup()
+exten => h,1,Noop(Dial status  for $${UNIQUEID},${DIALSTATUS},${HANGUPCAUSE})
+exten => h,n,Set(_end_time=${CDR(end)})
+exten => h,n,AGI(manual_dial_end.pl,${UNIQUEID},${DIALSTATUS},${start_time},${end_time},${client_name})
+;exten => _310X.,1,Dial(SIP/${EXTEN:3}@airtelsip,30,tT)
+;exten => _310X.,n,Hangup()
+
+
+[LocalSets]
+include => queues 
+;include => meetme
+
+
+[incoming_calls]
+
+[phones]
+include => internal
+include => remote
+
+[internal]
+exten => _2XXX,1,NoOp()
+exten => _2XXX,n,Dial(SIP/${EXTEN},30)
+exten => _2XXX,n,Playback(the-party-you-are-calling&is-curntly-unavail)
+exten => _2XXX,n,Hangup()
+
+[remote]
+exten => _410X.,1,NoOp()
+exten => _410X.,n,Dial(SIP/osaka/${EXTEN})
+exten => _410X.,n,Hangup()
+
+[osaka_incoming]
+include => internal
+
+
+
+[outbound_test]
+exten => _x.,1,NoOp("Entering the call for outbound test ")
+exten => _x.,n,Dial(SIP/115184)
+exten => _x.,n,Hangup()
+exten => h,1,NoOp(STATUS ${DIALSTATUS})
+;exten => h,n,GotoIf($[${transfer}=1 & ${transferhangup}=0]?transferanswer:transferhangup)
+;exten => h,n(transferanswer),Set(transferhangup=1)
+;exten => h,n,NoOp(Transfer Was Answered at : ${STRFTIME(${EPOCH},,%Y-%m-%d %H:%M:%S)})
+exten => h,n,NoOp(STATUS ${CDR(start)}) ;start of record
+exten => h,n,NoOp(STATUS ${DIALSTATUS})
+exten => h,n,NoOp(AnsweredTime ${ANSWEREDTIME})
+exten => h,n,NoOp(DialedTime ${DIALEDTIME})
+exten => h,n,NoOp(TransferTime ${CDR(billsec)})
+exten => h,n,NoOp(RINGTIME ${CDR(duration)})
+
+
+[test3way]
+exten => 1212,1,Noop(########## TLC Check ##########)
+same => n,set(DYNAMIC_FEATURES=3way-start)
+same => n,Dial(SIP/114151,30,m)
+
+
+[dynamic-3way]
+exten => _XXX.,1,Answer
+exten => _XXX.,n,Set(CONFNO=1212)
+exten => _XXX.,n,Set(DYNAMIC_FEATURES=)
+exten => _XXX.,n,ConfBridge(${CONFNO},M)
+exten => _XXX.,n,Hangup
+
+
+[macro-3way-start]
+exten => s,1,Set(CONFNO=1212)
+exten => s,n,ChannelRedirect(${BRIDGEPEER},dynamic-3way,${CONFNO},1)
+exten => s,n,wait(1)
+exten => s,n,Set(DYNAMIC_FEATURES=3way-conf#3way-noconf)
+exten => s,n,Dial(SIP/115184,,g)
+exten => s,n,Set(DYNAMIC_FEATURES=)
+exten => s,n,ConfBridge(${CONFNO},M)
+;exten => _x.,n,ConfBridge(1,default_bridge,default_user)
+
+[macro-3way-conf]
+exten => s,1,ChannelRedirect(${BRIDGEPEER},dynamic-3way,${CONFNO},1)
+
+[macro-3way-noconf]
+exten => s,1,SoftHangup(${BRIDGEPEER})
+

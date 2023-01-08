@@ -1,0 +1,12 @@
+[2022-02-08 15:45:26]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='3') AND (`status`='2') AND (`menu_ids`='33')"
+
+[2022-02-08 17:02:03]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='27')"
+
+[2022-02-08 17:02:10]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='28')"
+
+[2022-02-08 17:02:15]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='39')"
+
+[2022-02-08 17:02:33]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='40')"
+
+[2022-02-08 17:02:42]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='40')"
+

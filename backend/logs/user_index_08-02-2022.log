@@ -1,0 +1,2 @@
+[2022-02-08 15:53:46]# Query => "SELECT * FROM `vaani_user` WHERE (`vaani_user`.`is_active`=1) AND (`vaani_user`.`del_status` LIKE '%1%') ORDER BY `id` DESC"
+

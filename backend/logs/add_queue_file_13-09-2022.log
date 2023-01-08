@@ -1,0 +1,68 @@
+[2022-09-13 12:57:28]# Query => Action - add , Queue - telugu_127, priority - 5
+
+[2022-09-13 12:57:33]# Query => member => SIP/Adarsh,5
+
+
+[2022-09-13 13:01:39]# Query => member => SIP/Adarsh,0
+
+
+[2022-09-13 13:01:40]# Query => member => SIP/Adarsh,5
+
+
+[2022-09-13 13:05:23]# Query => member => SIP/Adarsh,0
+
+
+[2022-09-13 13:05:24]# Query => member => SIP/Adarsh,10
+
+
+[2022-09-13 13:06:06]# Query => Action - add , Queue - telugu_127, priority - 5
+
+[2022-09-13 13:06:07]# Query => member => SIP/manager,5
+
+
+[2022-09-13 13:07:36]# Query => Action - add , Queue - telugu_127, priority - 5
+
+[2022-09-13 13:07:37]# Query => member => SIP/Supervisor,5
+
+
+[2022-09-13 13:08:14]# Query => member => SIP/Adarsh,0
+
+
+[2022-09-13 13:08:15]# Query => member => SIP/Adarsh,10
+
+
+[2022-09-13 14:42:38]# Query => Action - add , Queue - telugu_127, priority - 5
+
+[2022-09-13 14:42:39]# Query => member => SIP/9867,5
+
+
+[2022-09-13 15:47:18]# Query => member => SIP/9867,0
+
+
+[2022-09-13 15:47:19]# Query => member => SIP/9867,5
+
+
+[2022-09-13 15:49:00]# Query => member => SIP/9867,0
+
+
+[2022-09-13 15:49:01]# Query => member => SIP/9867,5
+
+
+[2022-09-13 17:02:51]# Query => member => SIP/101012,0
+
+
+[2022-09-13 17:02:52]# Query => member => SIP/101012,5
+
+
+[2022-09-13 18:21:31]# Query => member => SIP/101012,0
+
+
+[2022-09-13 18:21:32]# Query => member => SIP/101012,5
+
+
+[2022-09-13 18:24:17]# Query => member => SIP/101012,0
+
+
+[2022-09-13 18:24:18]# Query => member => SIP/101012,5
+
+

@@ -1,0 +1,92 @@
+[2022-09-14 10:41:49]# Query => member => SIP/102031,0
+
+
+[2022-09-14 10:41:50]# Query => member => SIP/102031,5
+
+
+[2022-09-14 10:41:51]# Query => member => SIP/102031,5
+
+
+[2022-09-14 11:46:37]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 0
+
+[2022-09-14 11:46:38]# Query => member => SIP/102034,0
+
+
+[2022-09-14 14:22:14]# Query => member => SIP/102031,0
+
+
+[2022-09-14 14:22:14]# Query => member => SIP/102031,0
+
+
+[2022-09-14 14:22:15]# Query => member => SIP/102031,5
+
+
+[2022-09-14 14:38:13]# Query => member => SIP/102031,0
+
+
+[2022-09-14 14:38:13]# Query => member => SIP/102031,5
+
+
+[2022-09-14 14:44:18]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 5
+
+[2022-09-14 14:44:18]# Query => member => SIP/102035,5
+
+
+[2022-09-14 14:44:18]# Query => Action - add , Queue - mik_test_predictive_default12_107, priority - 5
+
+[2022-09-14 14:44:19]# Query => member => SIP/102035,5
+
+
+[2022-09-14 14:44:19]# Query => Action - add , Queue - mik_test_inbound_queue_108, priority - 5
+
+[2022-09-14 14:44:20]# Query => member => SIP/102035,5
+
+
+[2022-09-14 14:44:20]# Query => Action - add , Queue - mik_time_preview_default14_123, priority - 5
+
+[2022-09-14 14:44:20]# Query => member => SIP/102035,5
+
+
+[2022-09-14 14:44:21]# Query => Action - add , Queue - normal_preview_default15_124, priority - 5
+
+[2022-09-14 14:44:21]# Query => member => SIP/102035,5
+
+
+[2022-09-14 14:45:03]# Query => member => SIP/102031,0
+
+
+[2022-09-14 14:45:04]# Query => member => SIP/102031,5
+
+
+[2022-09-14 16:58:49]# Query => member => SIP/102031,0
+
+
+[2022-09-14 16:58:50]# Query => member => SIP/102031,5
+
+
+[2022-09-14 17:58:03]# Query => member => SIP/102031,0
+
+
+[2022-09-14 17:58:03]# Query => member => SIP/102031,5
+
+
+[2022-09-14 18:05:51]# Query => Action - add , Queue - hdfc_progressive_default54_117, priority - 5
+
+[2022-09-14 18:05:52]# Query => member => SIP/9118,5
+
+
+[2022-09-14 18:05:52]# Query => Action - add , Queue - hdfc_predictive_default06_118, priority - 5
+
+[2022-09-14 18:05:52]# Query => member => SIP/9118,5
+
+
+[2022-09-14 18:05:53]# Query => Action - add , Queue - hdfc_prog1_default43_121, priority - 5
+
+[2022-09-14 18:05:53]# Query => member => SIP/9118,5
+
+
+[2022-09-14 18:05:53]# Query => Action - add , Queue - hdfc_pred1_default26_122, priority - 5
+
+[2022-09-14 18:05:54]# Query => member => SIP/9118,5
+
+

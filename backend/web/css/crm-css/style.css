@@ -1,0 +1,153 @@
+/* =============================================================================
+CSS Created By - Krunal Wankhede
+============================================================================= */
+
+/* =============================================================================
+Global CSS
+============================================================================= */
+
+:root{
+    --objectWidth : 250px;
+}
+html, body{width:100%; height:100%; margin: 0; padding: 0;}
+html{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+body{font-family: 'Roboto', sans-serif; font-size: 14px; background-color: #F2F2F2;}
+h1{margin: 0; font-size: 32px; text-transform: uppercase;}
+h4{font-size: 20px; font-weight: 600; margin: 0;}
+
+.ms-30{margin-left: 30px!important;}
+
+a{text-decoration: none;}
+
+.pr-0{padding-right: 0;}
+.p-relative{position: relative;}
+
+.header{box-shadow: 0 0 15px 5px #d2d2d2; background-color: #ffffff;}
+.navbar-brand{display: inline-block;}
+.navbar-brand img{width: 155px;}
+
+.heading{background-color: #FFF; padding: 15px; border-bottom: 1px solid #e8e8e8;}
+
+.btn-white{background: #FFf; border: 1px solid #1943D8; color: #1943D8;}
+.btn-trans{background: none; border: 1px solid #1943D8; color: #1943D8;}
+.btn-white:hover, .btn-trans:hover{background: #1943D8; border: 1px solid #1943D8; color: #FFF;}
+.btn-group-box{display: none;}
+.btn-theme {color: #fff; background-color: #EE872E; border-color: #d27422;}
+
+.content .form-label{position: absolute;top: 7px;margin: auto;padding: 0px;left: 25px;color: #7e7e7e;background: #ffffff;font-weight: 400!important;z-index: 0;transition: all ease .4s;pointer-events: none;}
+/* .form-control{transition: all ease .4s; border-radius: 0;height: calc(2.25rem + 5px);border: 1px solid #dee6ee;} */
+.content .form-control, .content  .form-select{border: none; text-transform: capitalize; font-size: 14px;}
+.content .form-control:focus, .content .form-select:focus{box-shadow: 2px 2px 2px 0px #b1d4fa;}
+.content .form-control:focus ~ .form-label, .content .form-control:valid ~ .form-label, .content .form-select:focus ~ .form-label, .content .form-select:valid ~ .form-label, .content .form-label.static-fixed{top: -10px;left: 22px;font-size: 12px;color: #000;font-weight: 700!important;padding: 1px 5px;}
+
+/* =============================================================================
+Bootstrap changes CSS
+============================================================================= */
+.btn{border-radius: 5px; font-size: 14px;}
+.col-auto,.col-6, .form-group{position: relative;padding-right: 0;}
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){padding:0; width: 100%;}
+.bootstrap-select>.dropdown-toggle{line-height: 1.8;background: #FFF; border: 1px solid #ced4da;}
+.bs-searchbox .form-control{border: 1px solid #e5e5e5;}
+.dropdown-menu{font-size: 14px;}
+
+/* =============================================================================
+Left side CSS
+============================================================================= */
+
+.title-box{padding: 20px 15px; background: none; border-bottom: 1px solid #d5d9ee; text-align: center; margin-bottom: 15px;}
+.left-section{background: #EEEFF5;}
+.left-section aside{position: sticky; top: 0;}
+.left-section .nav-item{margin-top: 15px; margin-bottom: 5px;}
+.left-section .nav-item:last-child{margin-bottom: 15px;}
+.left-section .nav-link{border: 1px solid #1D4487; border-radius: 5px; padding: 12px;}
+.left-section .nav-link img{margin-right: 15px;}
+
+/* =============================================================================
+Form Maker CSS
+================================================================================ */
+.content .mandatory-mark{position: absolute; top: -14px;}
+
+.content{background-color: #FFF;padding: 0 15px 15px 15px;}
+.form-maker{background-color: #EEEFF5; padding: 15px; margin-bottom: 15px;}
+.form-maker:last-child{margin-bottom: 0;}
+.form-field-description{margin-top: 28px;position: relative;}
+.parent::after, .parent::before, [class*="child"]::before, [class*="child"]::after{content: '';position: absolute;}
+.parent::after{content: attr(data-title); text-indent: 20px; font-weight: 800; text-transform: capitalize;}
+.parent::after{top: -25px;border-radius: 50%;background: #a7b2f2;height: 10px;width: 10px;left: -12px;}
+.parent::before{border: 1px solid #dadcec;top: -20px;right: 0;bottom: -8px;left: -8px;}
+.child-01::after{left: 0px;}
+.child-02::after{left: 10px;}
+.child-03::after{left: 20px;}
+.child-04::after{left: 30px;}
+.child-05::after{left: 40px;}
+.child-06::after{left: 50px;}
+.child-07::after{left: 60px;}
+.child-08::after{left: 70px;}
+.child-09::after{left: 80px;}
+.child-10::after{left: 90px;}
+.child-11::after{left: 100px;}
+
+.more-options{display: inline-block;position: absolute;right: -30px;top: 0;padding: 4px 7px;background: #FFF;text-decoration: none;border: 1px solid;width: 25px;text-align: center;}
+
+.pos-rel{position: relative;}
+.pos-rel .form-label{left: 13px;}
+.pos-rel .form-control, .pos-rel .form-select{border: 1px solid #e0e0e0;padding-right: 21px;}
+.pos-rel .form-control:focus ~ .form-label, .pos-rel .form-control:valid ~ .form-label, .pos-rel .form-select:focus ~ .form-label, .pos-rel .form-select:valid ~ .form-label, .pos-rel .form-label.static-fixed{left: 10px;}
+.btn-box{text-align: center;}
+.dropdown-select-options{background-color: #FFF;padding: 10px;overflow: hidden;overflow-y: auto;max-height: 165px;width: 190px;position: absolute;z-index: 1;border: 1px solid #e6e6e6;display: none;box-shadow: 3px 3px 10px #e2e2e2;}
+.dropdown-select-options.opened{display: block;}
+.dropdown-select-options .btn-outline-primary{font-size: 12px;}
+
+.delete-btn{position: absolute; top: 1px; right: 1px; padding: 6px; background: #FFF; bottom: 3px;}
+
+.btn-default{color: #000; background-color: #ffffff; border-color: #ffffff;}
+
+.form-button{text-align: center;}
+.form-container{position: relative;}
+.form-container.parent::after{top: -10px;}
+.form-container.parent::before{top: -5px;right: -8px;bottom: -8px;left: -8px;background: rgb(161 168 226 / 15%);}
+
+.top-heading{position: sticky; top: 0; z-index: 1;}
+
+.float-center{display: inline-block;}
+.float-center .nav-link{border: 1px solid;margin-left: 10px;color: #000;transition: all ease .4s;font-size: 14px;border-radius: 5px;padding: 5px 10px;}
+.float-center .nav-link:hover{background-color: #000; color: #FFF;}
+
+.right-section{background: #EEEFF5;}
+.right-section aside{position: sticky; top: 0; margin-bottom: 30px;}
+
+.form-box{background-color: #FFF;}
+.form-box .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){width: 100%;}
+.rule-creation .form-group{padding-top: 30px; padding-bottom: 30px;}
+
+.modal-body h2{font-size: 18px;margin-bottom: 20px;margin-top: 20px;}
+.bordered-right{border-right: 1px solid #d6d6d6;}
+
+.placeholder_field {
+    display: block;
+    width: 100%;
+    padding: 0.360rem 0rem;
+    padding-left: 0.15rem; 
+    /* font-size: 1rem; */
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.content .placeholder_field{border: none;text-transform: capitalize;font-size: 14px;}
+
+/* ADDED BY RAVINDER */
+.form-row{
+    display: block !important;
+}
+.form-control{
+    border: 1px solid !important;
+}

@@ -1,0 +1,8 @@
+[2022-02-08 17:02:35]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='40') ORDER BY `id` DESC"
+
+[2022-02-08 17:02:35]# Query => {"id":null,"role_group_id":null,"role_assign_id":"RAI920220208113235099676","role_id":"4","client_id":null,"campaign_id":null,"queue_id":null,"menu_ids":"40","add":2,"modify":2,"delete":2,"view":1,"download":2,"status":"2","created_ip":null,"created_by":null,"modified_by":null,"modified_date":null,"modified_ip":null,"last_activity":null,"del_status":null,"created_date":null}
+
+[2022-02-08 17:02:43]# Query => "SELECT * FROM `vaani_role_master` WHERE (`role_id`='4') AND (`status`='2') AND (`menu_ids`='40') ORDER BY `id` DESC"
+
+[2022-02-08 17:02:43]# Query => {"id":1762,"role_group_id":null,"role_assign_id":"RAI920220208113235099676","role_id":"4","client_id":"","campaign_id":"","queue_id":"","menu_ids":"40","add":"2","modify":"2","delete":"2","view":"1","download":2,"status":"2","created_ip":"172.16.154.39","created_by":"super admin","modified_by":"super admin","modified_date":"2022-02-08 17:02:35","modified_ip":null,"last_activity":null,"del_status":"2","created_date":"2022-02-08 17:02:35"}
+

@@ -1,0 +1,28 @@
+[2022-08-04 10:47:40]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-08-04 10:47:40]# Query => member => SIP/60009,5
+
+
+[2022-08-04 10:48:58]# Query => member => SIP/60009,0
+
+
+[2022-08-04 10:49:45]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-08-04 10:49:46]# Query => member => SIP/600010,5
+
+
+[2022-08-04 10:51:38]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-08-04 10:51:39]# Query => member => SIP/60009,5
+
+
+[2022-08-04 10:52:31]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-08-04 10:52:31]# Query => member => SIP/600011,5
+
+
+[2022-08-04 10:54:35]# Query => Action - add , Queue - eos_pred_default05_90, priority - 5
+
+[2022-08-04 10:54:36]# Query => member => SIP/600013,5
+
+

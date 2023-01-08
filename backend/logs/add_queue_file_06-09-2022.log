@@ -1,0 +1,58 @@
+[2022-09-06 11:13:22]# Query => member => SIP/101012,0
+
+
+[2022-09-06 11:13:22]# Query => member => SIP/101012,5
+
+
+[2022-09-06 11:18:59]# Query => member => SIP/101012,0
+
+
+[2022-09-06 11:18:59]# Query => member => SIP/101012,5
+
+
+[2022-09-06 13:13:55]# Query => member => SIP/101012,0
+
+
+[2022-09-06 13:13:56]# Query => member => SIP/101012,5
+
+
+[2022-09-06 17:49:55]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 5
+
+[2022-09-06 17:49:55]# Query => member => SIP/102032,5
+
+
+[2022-09-06 17:50:41]# Query => Action - add , Queue - mik_test_progessive_default03_106, priority - 5
+
+[2022-09-06 17:50:42]# Query => member => SIP/102033,5
+
+
+[2022-09-06 17:50:56]# Query => member => SIP/102031,0
+
+
+[2022-09-06 17:50:57]# Query => member => SIP/102031,5
+
+
+[2022-09-06 19:00:23]# Query => member => SIP/101012,0
+
+
+[2022-09-06 19:00:24]# Query => member => SIP/101012,5
+
+
+[2022-09-06 19:22:39]# Query => member => SIP/101012,0
+
+
+[2022-09-06 19:22:39]# Query => member => SIP/101012,5
+
+
+[2022-09-06 19:24:49]# Query => member => SIP/101012,0
+
+
+[2022-09-06 19:24:50]# Query => member => SIP/101012,5
+
+
+[2022-09-06 19:25:09]# Query => member => SIP/101012,0
+
+
+[2022-09-06 19:25:10]# Query => member => SIP/101012,5
+
+

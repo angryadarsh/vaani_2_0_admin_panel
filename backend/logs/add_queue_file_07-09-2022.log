@@ -1,0 +1,50 @@
+[2022-09-07 11:47:03]# Query => Action - add , Queue - tester_01_normal_preview_default42_128, priority - 5
+
+[2022-09-07 11:47:04]# Query => member => SIP/Admin,5
+
+
+[2022-09-07 11:47:04]# Query => Action - add , Queue - tester_01_time_preview_default40_129, priority - 5
+
+[2022-09-07 11:47:04]# Query => member => SIP/Admin,5
+
+
+[2022-09-07 11:47:05]# Query => Action - add , Queue - tester_01_progressive_default10_130, priority - 5
+
+[2022-09-07 11:47:05]# Query => member => SIP/Admin,5
+
+
+[2022-09-07 13:13:13]# Query => member => SIP/101012,0
+
+
+[2022-09-07 13:13:14]# Query => member => SIP/101012,5
+
+
+[2022-09-07 13:17:26]# Query => member => SIP/101012,0
+
+
+[2022-09-07 13:17:27]# Query => member => SIP/101012,5
+
+
+[2022-09-07 14:27:57]# Query => member => SIP/101012,0
+
+
+[2022-09-07 14:27:58]# Query => member => SIP/101012,5
+
+
+[2022-09-07 14:36:57]# Query => member => SIP/101012,0
+
+
+[2022-09-07 14:36:58]# Query => member => SIP/101012,5
+
+
+[2022-09-07 14:41:37]# Query => member => SIP/101012,0
+
+
+[2022-09-07 14:41:37]# Query => member => SIP/101012,5
+
+
+[2022-09-07 17:55:02]# Query => Action - add , Queue - tester_01_normal_preview_default42_128, priority - 5
+
+[2022-09-07 17:55:03]# Query => member => SIP/1991,5
+
+

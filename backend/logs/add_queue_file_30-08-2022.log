@@ -1,0 +1,149 @@
+[2022-08-30 11:25:41]# Query => member => SIP/102031,0
+
+
+[2022-08-30 11:25:42]# Query => member => SIP/102031,5
+
+
+[2022-08-30 11:46:31]# Query => member => SIP/9113,0
+
+
+[2022-08-30 11:46:32]# Query => member => SIP/9113,0
+
+
+[2022-08-30 11:46:32]# Query => member => SIP/9113,5
+
+
+[2022-08-30 11:46:33]# Query => member => SIP/9113,5
+
+
+[2022-08-30 12:43:05]# Query => Action - add , Queue - edas_qa_ob_default21_125, priority - 5
+
+[2022-08-30 12:43:05]# Query => member => SIP/11223311,5
+
+
+[2022-08-30 12:44:22]# Query => Action - add , Queue - edas_qa_ob_default21_125, priority - 5
+
+[2022-08-30 12:44:23]# Query => member => SIP/11223322,5
+
+
+[2022-08-30 12:56:28]# Query => member => SIP/11223377,0
+
+
+[2022-08-30 12:56:29]# Query => member => SIP/11223377,5
+
+
+[2022-08-30 13:07:02]# Query => member => SIP/102031,0
+
+
+[2022-08-30 13:07:03]# Query => member => SIP/102031,5
+
+
+[2022-08-30 13:08:32]# Query => member => SIP/102031,0
+
+
+[2022-08-30 13:08:33]# Query => member => SIP/102031,5
+
+
+[2022-08-30 13:08:33]# Query => member => SIP/102031,5
+
+
+[2022-08-30 13:18:29]# Query => member => SIP/11223377,0
+
+
+[2022-08-30 13:18:30]# Query => member => SIP/11223377,5
+
+
+[2022-08-30 14:30:09]# Query => member => SIP/11223322,0
+
+
+[2022-08-30 14:30:10]# Query => member => SIP/11223322,5
+
+
+[2022-08-30 14:31:51]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 14:31:52]# Query => member => SIP/15559,5
+
+
+[2022-08-30 14:33:09]# Query => member => SIP/15559,0
+
+
+[2022-08-30 14:33:10]# Query => member => SIP/15559,5
+
+
+[2022-08-30 14:34:05]# Query => member => SIP/15559,0
+
+
+[2022-08-30 14:34:06]# Query => member => SIP/15559,5
+
+
+[2022-08-30 14:43:50]# Query => member => SIP/11223377,0
+
+
+[2022-08-30 14:43:51]# Query => member => SIP/11223377,5
+
+
+[2022-08-30 15:07:14]# Query => member => SIP/11223377,0
+
+
+[2022-08-30 15:07:14]# Query => member => SIP/11223377,5
+
+
+[2022-08-30 15:07:15]# Query => member => SIP/11223377,5
+
+
+[2022-08-30 15:11:57]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 15:11:57]# Query => member => SIP/sSDG,5
+
+
+[2022-08-30 15:14:18]# Query => Action - add , Queue - edas_qa_ob_default21_125, priority - 5
+
+[2022-08-30 15:14:18]# Query => member => SIP/15553,5
+
+
+[2022-08-30 15:16:57]# Query => member => SIP/sSDG,0
+
+
+[2022-08-30 15:17:03]# Query => member => SIP/15553,0
+
+
+[2022-08-30 15:18:45]# Query => Action - add , Queue - edas_qa_ob_default21_125, priority - 5
+
+[2022-08-30 15:18:45]# Query => member => SIP/11112229,5
+
+
+[2022-08-30 19:26:41]# Query => member => SIP/15559,0
+
+
+[2022-08-30 19:31:18]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 19:31:18]# Query => member => SIP/15555,5
+
+
+[2022-08-30 19:31:54]# Query => member => SIP/15555,0
+
+
+[2022-08-30 19:34:56]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 19:34:57]# Query => member => SIP/123456,5
+
+
+[2022-08-30 19:35:16]# Query => member => SIP/123456,0
+
+
+[2022-08-30 19:37:30]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 19:37:31]# Query => member => SIP/12698,5
+
+
+[2022-08-30 19:38:09]# Query => member => SIP/12698,0
+
+
+[2022-08-30 19:38:53]# Query => Action - add , Queue - edas_01_114, priority - 5
+
+[2022-08-30 19:38:53]# Query => member => SIP/15874,5
+
+
+[2022-08-30 19:39:13]# Query => member => SIP/15874,0
+
+

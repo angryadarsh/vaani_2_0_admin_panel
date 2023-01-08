@@ -1,0 +1,490 @@
+CREATE TABLE `customer` (
+  `emp_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_code` varchar(50) DEFAULT NULL,
+  `emp_name` varchar(100) DEFAULT NULL,
+  `contact_no_1` varchar(15) DEFAULT NULL,
+  `contact_no_2` varchar(15) DEFAULT NULL,
+  `contact_no_3` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `insertdate` datetime DEFAULT NULL,
+  `agent_name` varchar(100) DEFAULT NULL,
+  `agent_id` varchar(50) DEFAULT NULL,
+  `callbackdatetime` varchar(50) DEFAULT NULL,
+  `disposition` varchar(100) DEFAULT NULL,
+  `sub_disposition` varchar(100) DEFAULT NULL,
+  `remark` varchar(200) DEFAULT NULL,
+  `upload_flag` varchar(10) DEFAULT NULL,
+  `mail_body` longtext CHARACTER SET latin1,
+  `sms_response` longtext CHARACTER SET latin1,
+  `unique_id` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`emp_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
+/**********/
+CREATE TABLE `disp_list` (
+  `dispid` int(11) DEFAULT NULL,
+  `disposition` text,
+  `subdisposition` text,
+  `shorcode` text,
+  `insertdate` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `history` (
+  `activity_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_code` varchar(50) DEFAULT NULL,
+  `emp_name` varchar(100) DEFAULT NULL,
+  `contact_no_1` varchar(15) DEFAULT NULL,
+  `contact_no_2` varchar(15) DEFAULT NULL,
+  `contact_no_3` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `insertdate` datetime DEFAULT NULL,
+  `agent_name` varchar(100) DEFAULT NULL,
+  `agent_id` varchar(50) DEFAULT NULL,
+  `callbackdatetime` varchar(50) DEFAULT NULL,
+  `disposition` varchar(100) DEFAULT NULL,
+  `sub_disposition` varchar(100) DEFAULT NULL,
+  `remark` varchar(200) DEFAULT NULL,
+  `mail_body` longtext CHARACTER SET latin1,
+  `sms_response` longtext CHARACTER SET latin1,
+  `unique_id` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`activity_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/**********/
+CREATE TABLE `inbound_edas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mobile_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date` varchar(20) DEFAULT NULL,
+  `time` varchar(20) DEFAULT NULL,
+  `day` varchar(20) DEFAULT NULL,
+  `Time_Session` varchar(20) DEFAULT NULL,
+  `campaign` varchar(50) DEFAULT NULL,
+  `weekday` varchar(20) DEFAULT NULL,
+  `unique_id` varchar(20) DEFAULT NULL,
+  `keyinput` varchar(10) DEFAULT NULL,
+  `agent_id` varchar(20) DEFAULT NULL,
+  `agent_name` varchar(50) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL COMMENT '(1 - queue, 2 - ivr)',
+  `dni_number` varchar(50) DEFAULT NULL,
+  `total_call_agent_handled` int(10) NOT NULL DEFAULT '0',
+  `last_call_time` varchar(50) DEFAULT NULL,
+  `queue` varchar(50) DEFAULT NULL,
+  `queue_strategy` varchar(20) DEFAULT NULL,
+  `queue_calls` int(10) NOT NULL DEFAULT '0',
+  `queue_calls_completed` int(10) NOT NULL DEFAULT '0',
+  `queue_calls_abondoned` int(10) NOT NULL DEFAULT '0',
+  `start_time` varchar(30) DEFAULT NULL,
+  `end_time` varchar(30) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `queue_hold_time` int(10) DEFAULT '0',
+  `hangup_by` varchar(20) DEFAULT 'CUSTOMER',
+  `transfer_start_time` varchar(20) DEFAULT NULL,
+  `trasfer_end_time` varchar(20) DEFAULT NULL,
+  `transfer_agent_id` varchar(20) DEFAULT NULL,
+  `consult_start_time` varchar(20) DEFAULT NULL,
+  `consult_end_time` varchar(20) DEFAULT NULL,
+  `consult_agent_id` varchar(20) DEFAULT NULL,
+  `conference_start_time` varchar(20) DEFAULT NULL,
+  `conference_end_time` varchar(20) DEFAULT NULL,
+  `conference_agent_id` varchar(20) DEFAULT NULL,
+  `Column 35` varchar(20) DEFAULT NULL,
+  `recording_path` varchar(180) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `manual_dial_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mobile_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `agent_id` varchar(20) DEFAULT NULL,
+  `agent_name` varchar(50) DEFAULT NULL,
+  `date` varchar(20) DEFAULT NULL,
+  `time` varchar(20) DEFAULT NULL,
+  `day` varchar(20) DEFAULT NULL,
+  `Time_Session` varchar(20) DEFAULT NULL,
+  `campaign` varchar(20) DEFAULT NULL,
+  `queue_name` varchar(20) DEFAULT NULL,
+  `weekday` varchar(20) DEFAULT NULL,
+  `unique_id` varchar(20) DEFAULT NULL,
+  `start_time` varchar(30) DEFAULT NULL,
+  `end_time` varchar(30) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `ring_duration` varchar(20) DEFAULT NULL,
+  `transfer_start_time` varchar(20) DEFAULT NULL,
+  `trasfer_end_time` varchar(20) DEFAULT NULL,
+  `transfer_agent_id` varchar(20) DEFAULT NULL,
+  `consult_start_time` varchar(20) DEFAULT NULL,
+  `consult_end_time` varchar(20) DEFAULT NULL,
+  `consult_agent_id` varchar(20) DEFAULT NULL,
+  `conference_start_time` varchar(20) DEFAULT NULL,
+  `conference_end_time` varchar(20) DEFAULT NULL,
+  `conference_agent_id` varchar(20) DEFAULT NULL,
+  `transfer_channel` varchar(200) DEFAULT NULL,
+  `hangup_by` varchar(20) DEFAULT 'CUSTOMER',
+  `recording_path` varchar(180) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_active_status` (
+  `auto_id` int(11) NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(200) NOT NULL,
+  `campaign_id` varchar(100) NOT NULL,
+  `user_id` varchar(50) DEFAULT NULL,
+  `unique_id` varchar(50) DEFAULT NULL,
+  `status` int(3) unsigned DEFAULT NULL,
+  `sub_status` varchar(50) DEFAULT NULL,
+  `agent_name` varchar(100) NOT NULL,
+  `status_start_datetime` datetime NOT NULL,
+  `substatus_start_datetime` datetime NOT NULL,
+  `created_datetime` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `del_status` tinyint(2) unsigned DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`session_id`),
+  UNIQUE KEY `auto_id` (`auto_id`),
+  KEY `unique_id` (`unique_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_agent_call_master` (
+  `call_id` bigint(10) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(20) DEFAULT NULL,
+  `unique_id` varchar(20) DEFAULT NULL,
+  `call_action` varchar(10) DEFAULT NULL,
+  `action_starttime` datetime DEFAULT NULL,
+  `action_duration` varchar(20) DEFAULT NULL,
+  `call_sequence` int(5) DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`call_id`),
+  KEY `idx_unique_id` (`unique_id`),
+  KEY `idx_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_agent_call_report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agent_id` varchar(45) DEFAULT NULL,
+  `unique_id` varchar(45) DEFAULT NULL,
+  `agent_name` varchar(100) NOT NULL,
+  `queue_name` varchar(100) NOT NULL,
+  `caller_id` varchar(50) NOT NULL,
+  `disposition` varchar(200) NOT NULL,
+  `ringing` varchar(20) DEFAULT NULL,
+  `incall` varchar(20) DEFAULT NULL,
+  `talk` varchar(20) DEFAULT NULL,
+  `hold` varchar(20) DEFAULT NULL,
+  `transfer` varchar(20) DEFAULT NULL,
+  `conference` varchar(20) DEFAULT NULL,
+  `consult` varchar(20) DEFAULT NULL,
+  `dispo` varchar(20) DEFAULT NULL,
+  `wrap` varchar(20) DEFAULT NULL,
+  `insert_date` datetime DEFAULT NULL,
+  `updated_date` datetime NOT NULL,
+  `campaign_name` varchar(100) DEFAULT NULL,
+  `call_type` tinyint(4) DEFAULT NULL COMMENT '1-manual, 2-inbound, 3-outbound',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_agent_live_status` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(50) DEFAULT NULL,
+  `agent_id` varchar(20) DEFAULT NULL,
+  `datetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `campaign_name` varchar(50) DEFAULT NULL,
+  `queue_name` varchar(50) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL COMMENT 'Incall,Hang up',
+  `sub_status` varchar(50) DEFAULT NULL,
+  `caller_id` varchar(50) DEFAULT NULL,
+  `transfer_id` varchar(50) DEFAULT NULL,
+  `call_type` int(10) unsigned DEFAULT NULL COMMENT '1 - manual, 2 - inbound, 3 - outbound, 4 - transfer, 5 - consult, 6 - conference, 7 - call_back',
+  `end_time` datetime DEFAULT NULL,
+  `disposition_time` datetime DEFAULT NULL,
+  `conf_num` int(7) DEFAULT NULL,
+  `conf_status` int(1) DEFAULT NULL COMMENT '1 for new 2 used',
+  `redial` tinyint(2) DEFAULT '1' COMMENT '1-redial not set, 2-redial set',
+  `is_active` int(2) NOT NULL DEFAULT '1',
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  `disposition` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_agent_id` (`agent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_break_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `b_id` varchar(50) DEFAULT NULL,
+  `agent_id` varchar(255) DEFAULT NULL,
+  `break_id` varchar(255) DEFAULT NULL,
+  `break_name` varchar(255) DEFAULT NULL,
+  `campaign_id` varchar(255) DEFAULT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `duration` int(10) NOT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` int(11) DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  `epochtime` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `b_id` (`b_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_call_access` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `campaign_id` varchar(255) DEFAULT NULL,
+  `queue_id` varchar(255) DEFAULT NULL,
+  `user_id` varchar(255) DEFAULT NULL,
+  `is_conference` int(11) DEFAULT NULL,
+  `is_transfer` int(11) DEFAULT NULL,
+  `is_consult` int(11) DEFAULT NULL,
+  `is_manual` int(11) DEFAULT NULL,
+  `created_date` varchar(255) DEFAULT NULL,
+  `modified_date` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` varchar(255) DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_callback_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'autoincrement number',
+  `agent_id` varchar(50) NOT NULL,
+  `unique_id` varchar(50) NOT NULL,
+  `parent_callid` varchar(50) NOT NULL COMMENT 'this is the parent callback id if multiple time callback set to check',
+  `callback_id` varchar(50) DEFAULT NULL,
+  `number` varchar(12) NOT NULL,
+  `status` tinyint(3) NOT NULL COMMENT '1-active, 2-executed, 3-inactive',
+  `callback_datetime` datetime NOT NULL,
+  `initiate_datetime` datetime DEFAULT NULL,
+  `created_datetime` datetime NOT NULL,
+  `modified_datetime` datetime DEFAULT NULL,
+  `del_status` tinyint(2) NOT NULL COMMENT '1-not deleted, 2-deleted',
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_caller_detail` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(100) DEFAULT NULL,
+  `caller_id` varchar(100) DEFAULT NULL,
+  `caller_channel` varchar(200) DEFAULT NULL,
+  `agent_id` varchar(20) DEFAULT NULL,
+  `agent_channel` varchar(100) DEFAULT NULL,
+  `conf_num` varchar(20) DEFAULT NULL,
+  `conf_channel` varchar(50) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `is_active` tinyint(3) unsigned DEFAULT NULL,
+  `del_status` tinyint(3) unsigned DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_campaign_break` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `campaign_id` varchar(255) DEFAULT NULL,
+  `break_name` varchar(255) DEFAULT NULL,
+  `break_id` varchar(50) DEFAULT NULL,
+  `is_active` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` int(11) DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_campaign_transfer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(50) NOT NULL,
+  `trf_camp_queue` varchar(100) NOT NULL COMMENT 'transfer campaign or queue name',
+  `trf_flag` tinyint(2) NOT NULL COMMENT 'transfer flag- 1:not tranfer, 2:transfer',
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `del_status` tinyint(2) NOT NULL COMMENT '1-not deleted, 2-not deleted',
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_client_operators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` varchar(255) DEFAULT NULL,
+  `operator_id` varchar(255) DEFAULT NULL,
+  `created_date` varchar(255) DEFAULT NULL,
+  `modified_date` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_conference_call` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `agent_id` varchar(50) NOT NULL,
+  `unique_id` varchar(50) NOT NULL,
+  `conference_no` varchar(50) NOT NULL,
+  `seq` int(11) NOT NULL,
+  `is_active` tinyint(3) NOT NULL COMMENT '1-active, 2-not active',
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `del_status` tinyint(3) NOT NULL COMMENT '1:not deleted, 2:deleted',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_consult_call` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `agent_id` varchar(50) NOT NULL,
+  `unique_id` varchar(50) NOT NULL,
+  `consult_no` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL COMMENT 'ext- external, in- internal ',
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `del_status` tinyint(3) NOT NULL COMMENT '1:not deleted, 2:deleted',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_costomer_history` (
+  `id` bigint(50) NOT NULL,
+  `unique_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `agent_id` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_mobile` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_alt_mobile` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `disposition` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remark` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `callback_datetime` datetime NOT NULL,
+  `date_created` datetime DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/**********/
+CREATE TABLE `vaani_costomer_info` (
+  `id` bigint(50) NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `agent_id` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_mobile` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_alt_mobile` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cust_status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `disposition` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remark` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `callback_datetime` datetime NOT NULL,
+  `date_created` datetime DEFAULT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/**********/
+CREATE TABLE `vaani_dispositions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `disposition_id` varchar(45) DEFAULT NULL,
+  `disposition_name` varchar(45) DEFAULT NULL,
+  `short_code` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL,
+  `modified_date` varchar(45) DEFAULT NULL,
+  `created_by` varchar(45) DEFAULT NULL,
+  `modified_by` varchar(45) DEFAULT NULL,
+  `created_ip` varchar(45) DEFAULT NULL,
+  `modified_ip` varchar(45) DEFAULT NULL,
+  `del_status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `disposition_id_UNIQUE` (`disposition_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/**********/
+CREATE TABLE `vaani_operators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `operator_name` varchar(255) DEFAULT NULL,
+  `created_date` varchar(255) DEFAULT NULL,
+  `modified_date` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_redial_call` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `agent_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `parent_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `redial_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `number` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(2) NOT NULL COMMENT '1-not dial, 2-redial',
+  `created_datetime` datetime NOT NULL,
+  `modified_datetime` datetime DEFAULT NULL,
+  `del_status` tinyint(2) NOT NULL COMMENT '1-not deleted, 2-deleted',
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/**********/
+CREATE TABLE `vaani_role_master` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `role_group_id` varchar(50) DEFAULT NULL,
+  `role_assign_id` varchar(50) DEFAULT NULL,
+  `role_id` varchar(50) NOT NULL,
+  `client_id` varchar(50) NOT NULL,
+  `campaign_id` varchar(50) NOT NULL,
+  `queue_id` varchar(50) DEFAULT NULL,
+  `menu_ids` varchar(50) DEFAULT NULL,
+  `add` varchar(50) DEFAULT NULL COMMENT '1- access, 2= not access',
+  `modify` varchar(50) DEFAULT NULL COMMENT '1- access, 2= not access',
+  `delete` varchar(50) DEFAULT NULL COMMENT '1- access, 2= not access',
+  `view` varchar(50) DEFAULT NULL COMMENT '1- access, 2= not access',
+  `download` tinyint(3) NOT NULL DEFAULT '1' COMMENT '1- not have privilege to download, 2- user can''t download',
+  `status` varchar(50) DEFAULT NULL COMMENT '1 - custom, 2= default setting',
+  `created_ip` varchar(50) DEFAULT NULL,
+  `created_by` varchar(50) DEFAULT NULL,
+  `modified_by` varchar(50) DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `modified_ip` varchar(50) DEFAULT NULL,
+  `last_activity` varchar(50) DEFAULT NULL,
+  `del_status` varchar(50) DEFAULT NULL COMMENT '1- not deleted, 2-deleted',
+  `created_date` datetime DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_user_active_queues` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) DEFAULT NULL,
+  `q1` varchar(255) DEFAULT NULL,
+  `q2` varchar(255) DEFAULT NULL,
+  `q3` varchar(255) DEFAULT NULL,
+  `q4` varchar(255) DEFAULT NULL,
+  `q5` varchar(255) DEFAULT NULL,
+  `q6` varchar(255) DEFAULT NULL,
+  `q7` varchar(255) DEFAULT NULL,
+  `q8` varchar(255) DEFAULT NULL,
+  `q9` varchar(255) DEFAULT NULL,
+  `q10` varchar(255) DEFAULT NULL,
+  `syn` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/
+CREATE TABLE `vaani_user_operator` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) DEFAULT NULL,
+  `operator_id` varchar(255) DEFAULT NULL,
+  `created_date` varchar(255) DEFAULT NULL,
+  `modified_date` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `modified_by` varchar(255) DEFAULT NULL,
+  `created_ip` varchar(255) DEFAULT NULL,
+  `modified_ip` varchar(255) DEFAULT NULL,
+  `del_status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**********/

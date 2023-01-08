@@ -1,0 +1,8 @@
+[testing_edas]
+host = 127.0.0.1
+database = asterisk
+username = root
+password = Mys@roja2021
+serverip=172.16.152.50
+operator = airtelsip
+;end_of_config

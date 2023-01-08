@@ -1,0 +1,34 @@
+[2022-09-05 11:38:12]# Query => member => SIP/101011,0
+
+
+[2022-09-05 11:38:13]# Query => member => SIP/101011,5
+
+
+[2022-09-05 11:38:57]# Query => Action - add , Queue - tester_01_time_preview_default40_129, priority - 5
+
+[2022-09-05 11:38:58]# Query => member => SIP/TEst,5
+
+
+[2022-09-05 11:39:08]# Query => member => SIP/TEst,0
+
+
+[2022-09-05 12:03:57]# Query => Action - add , Queue - tester_01_time_preview_default40_129, priority - 5
+
+[2022-09-05 12:03:58]# Query => member => SIP/Testing,5
+
+
+[2022-09-05 12:04:05]# Query => member => SIP/Testing,0
+
+
+[2022-09-05 12:19:24]# Query => member => SIP/101012,0
+
+
+[2022-09-05 12:19:25]# Query => member => SIP/101012,5
+
+
+[2022-09-05 18:55:16]# Query => member => SIP/101012,0
+
+
+[2022-09-05 18:55:17]# Query => member => SIP/101012,5
+
+

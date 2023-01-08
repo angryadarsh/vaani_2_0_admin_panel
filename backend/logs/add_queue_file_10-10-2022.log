@@ -1,0 +1,29 @@
+[2022-10-10 15:50:27]# Query => Action - add , Queue - edas_01_114, priority - 10
+
+[2022-10-10 15:50:28]# Query => member => SIP/3020agent,10
+
+
+[2022-10-10 16:39:59]# Query => member => SIP/11223377,0
+
+
+[2022-10-10 16:39:59]# Query => member => SIP/11223377,5
+
+
+[2022-10-10 16:55:29]# Query => member => SIP/11223377,0
+
+
+[2022-10-10 16:55:30]# Query => member => SIP/11223377,5
+
+
+[2022-10-10 16:56:34]# Query => member => SIP/3020agent,0
+
+
+[2022-10-10 16:56:34]# Query => member => SIP/3020agent,5
+
+
+[2022-10-10 16:58:07]# Query => member => SIP/11223377,0
+
+
+[2022-10-10 16:58:07]# Query => member => SIP/11223377,5
+
+

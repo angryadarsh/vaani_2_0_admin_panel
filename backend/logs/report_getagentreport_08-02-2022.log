@@ -1,0 +1,72 @@
+[2022-02-08 16:11:55]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type` IS NULL) AND (`del_status`=1)"
+
+[2022-02-08 16:12:00]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:12:43]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:13:33]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:14:04]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:14:35]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:15:05]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:15:35]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:16:27]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:17:18]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:18:10]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:19:03]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:19:54]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:20:45]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:26:22]# Query => "SELECT * FROM `edas_campaign_id` WHERE 0=1"
+
+[2022-02-08 16:45:22]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:56:22]# Query => "SELECT * FROM `edas_campaign_id` WHERE 0=1"
+
+[2022-02-08 16:57:38]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:58:32]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 16:59:24]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:00:14]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:01:05]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:01:55]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:02:46]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:03:37]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:04:29]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:05:17]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:06:11]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:14:22]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:26:22]# Query => "SELECT * FROM `edas_campaign_id` WHERE 0=1"
+
+[2022-02-08 17:33:18]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:34:11]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:35:01]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:35:52]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:36:41]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+
+[2022-02-08 17:37:35]# Query => "SELECT * FROM `edas_campaign_id` WHERE (`campaign_type`='2') AND (`del_status`=1)"
+

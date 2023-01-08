@@ -1,0 +1,50 @@
+[2022-08-25 15:23:31]# Query => Action - add , Queue - hdfc_prog_default21_116, priority - 5
+
+[2022-08-25 15:23:31]# Query => member => SIP/9111,5
+
+
+[2022-08-25 15:24:00]# Query => Action - add , Queue - hdfc_prog_default21_116, priority - 5
+
+[2022-08-25 15:24:01]# Query => member => SIP/9112,5
+
+
+[2022-08-25 15:24:35]# Query => Action - add , Queue - hdfc_prog_default21_116, priority - 0
+
+[2022-08-25 15:24:36]# Query => member => SIP/9113,0
+
+
+[2022-08-25 15:25:07]# Query => Action - add , Queue - hdfc_prog_default21_116, priority - 20
+
+[2022-08-25 15:25:08]# Query => member => SIP/9114,20
+
+
+[2022-08-25 15:36:47]# Query => member => SIP/9114,0
+
+
+[2022-08-25 15:36:47]# Query => member => SIP/9114,10
+
+
+[2022-08-25 15:37:03]# Query => member => SIP/9113,0
+
+
+[2022-08-25 15:37:04]# Query => member => SIP/9113,20
+
+
+[2022-08-25 15:43:30]# Query => member => SIP/9114,0
+
+
+[2022-08-25 15:43:30]# Query => member => SIP/9114,0
+
+
+[2022-08-25 15:43:31]# Query => member => SIP/9114,20
+
+
+[2022-08-25 15:43:48]# Query => member => SIP/9113,0
+
+
+[2022-08-25 15:43:49]# Query => member => SIP/9113,20
+
+
+[2022-08-25 15:43:49]# Query => member => SIP/9113,0
+
+

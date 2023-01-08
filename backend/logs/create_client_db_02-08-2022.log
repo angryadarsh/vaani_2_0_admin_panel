@@ -1,0 +1,184 @@
+[2022-08-02 10:50:59]# Query => CREATE DATABASE vaani_CL1420220802052059007530 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci 
+
+[2022-08-02 10:50:59]# Query => SHOW TABLES FROM dynamic_asterisk
+
+[2022-08-02 10:50:59]# Query => drop query
+
+[2022-08-02 10:50:59]# Query => SHOW CREATE TABLE `customer`
+
+[2022-08-02 10:50:59]# Query => drop query
+
+[2022-08-02 10:50:59]# Query => SHOW CREATE TABLE `disp_list`
+
+[2022-08-02 10:51:00]# Query => drop query
+
+[2022-08-02 10:51:00]# Query => SHOW CREATE TABLE `history`
+
+[2022-08-02 10:51:01]# Query => drop query
+
+[2022-08-02 10:51:01]# Query => SHOW CREATE TABLE `inbound_edas`
+
+[2022-08-02 10:51:03]# Query => drop query
+
+[2022-08-02 10:51:03]# Query => SHOW CREATE TABLE `manual_dial_detail`
+
+[2022-08-02 10:51:03]# Query => drop query
+
+[2022-08-02 10:51:03]# Query => SHOW CREATE TABLE `vaani_active_lead`
+
+[2022-08-02 10:51:04]# Query => drop query
+
+[2022-08-02 10:51:04]# Query => SHOW CREATE TABLE `vaani_active_status`
+
+[2022-08-02 10:51:05]# Query => drop query
+
+[2022-08-02 10:51:05]# Query => SHOW CREATE TABLE `vaani_agent_call_master`
+
+[2022-08-02 10:51:06]# Query => drop query
+
+[2022-08-02 10:51:06]# Query => SHOW CREATE TABLE `vaani_agent_call_report`
+
+[2022-08-02 10:51:07]# Query => drop query
+
+[2022-08-02 10:51:07]# Query => SHOW CREATE TABLE `vaani_agent_live_status`
+
+[2022-08-02 10:51:07]# Query => drop query
+
+[2022-08-02 10:51:07]# Query => SHOW CREATE TABLE `vaani_apr_report`
+
+[2022-08-02 10:51:08]# Query => drop query
+
+[2022-08-02 10:51:08]# Query => SHOW CREATE TABLE `vaani_batch_filter`
+
+[2022-08-02 10:51:09]# Query => drop query
+
+[2022-08-02 10:51:09]# Query => SHOW CREATE TABLE `vaani_break_log`
+
+[2022-08-02 10:51:10]# Query => drop query
+
+[2022-08-02 10:51:10]# Query => SHOW CREATE TABLE `vaani_call_access`
+
+[2022-08-02 10:51:10]# Query => drop query
+
+[2022-08-02 10:51:10]# Query => SHOW CREATE TABLE `vaani_callback_list`
+
+[2022-08-02 10:51:12]# Query => drop query
+
+[2022-08-02 10:51:12]# Query => SHOW CREATE TABLE `vaani_caller_detail`
+
+[2022-08-02 10:51:12]# Query => drop query
+
+[2022-08-02 10:51:12]# Query => SHOW CREATE TABLE `vaani_campaign_break`
+
+[2022-08-02 10:51:13]# Query => drop query
+
+[2022-08-02 10:51:13]# Query => SHOW CREATE TABLE `vaani_campaign_transfer`
+
+[2022-08-02 10:51:14]# Query => drop query
+
+[2022-08-02 10:51:14]# Query => SHOW CREATE TABLE `vaani_client_cron`
+
+[2022-08-02 10:51:15]# Query => drop query
+
+[2022-08-02 10:51:15]# Query => SHOW CREATE TABLE `vaani_client_operators`
+
+[2022-08-02 10:51:15]# Query => drop query
+
+[2022-08-02 10:51:15]# Query => SHOW CREATE TABLE `vaani_conference_call`
+
+[2022-08-02 10:51:16]# Query => drop query
+
+[2022-08-02 10:51:16]# Query => SHOW CREATE TABLE `vaani_consult_call`
+
+[2022-08-02 10:51:17]# Query => drop query
+
+[2022-08-02 10:51:17]# Query => SHOW CREATE TABLE `vaani_costomer_history`
+
+[2022-08-02 10:51:18]# Query => drop query
+
+[2022-08-02 10:51:18]# Query => SHOW CREATE TABLE `vaani_costomer_info`
+
+[2022-08-02 10:51:18]# Query => drop query
+
+[2022-08-02 10:51:18]# Query => SHOW CREATE TABLE `vaani_crm`
+
+[2022-08-02 10:51:20]# Query => drop query
+
+[2022-08-02 10:51:20]# Query => SHOW CREATE TABLE `vaani_crm_fields`
+
+[2022-08-02 10:51:21]# Query => drop query
+
+[2022-08-02 10:51:21]# Query => SHOW CREATE TABLE `vaani_crm_lead_mapping`
+
+[2022-08-02 10:51:21]# Query => drop query
+
+[2022-08-02 10:51:22]# Query => SHOW CREATE TABLE `vaani_dial_leads`
+
+[2022-08-02 10:51:22]# Query => drop query
+
+[2022-08-02 10:51:22]# Query => SHOW CREATE TABLE `vaani_dial_leads_history`
+
+[2022-08-02 10:51:23]# Query => drop query
+
+[2022-08-02 10:51:23]# Query => SHOW CREATE TABLE `vaani_dispositions`
+
+[2022-08-02 10:51:24]# Query => drop query
+
+[2022-08-02 10:51:24]# Query => SHOW CREATE TABLE `vaani_lead_basket`
+
+[2022-08-02 10:51:25]# Query => drop query
+
+[2022-08-02 10:51:25]# Query => SHOW CREATE TABLE `vaani_lead_basket_history`
+
+[2022-08-02 10:51:26]# Query => drop query
+
+[2022-08-02 10:51:26]# Query => SHOW CREATE TABLE `vaani_lead_batch`
+
+[2022-08-02 10:51:27]# Query => drop query
+
+[2022-08-02 10:51:27]# Query => SHOW CREATE TABLE `vaani_lead_dump`
+
+[2022-08-02 10:51:27]# Query => drop query
+
+[2022-08-02 10:51:27]# Query => SHOW CREATE TABLE `vaani_lead_mapping`
+
+[2022-08-02 10:51:28]# Query => drop query
+
+[2022-08-02 10:51:28]# Query => SHOW CREATE TABLE `vaani_outbound`
+
+[2022-08-02 10:51:29]# Query => drop query
+
+[2022-08-02 10:51:29]# Query => SHOW CREATE TABLE `vaani_predictive_action`
+
+[2022-08-02 10:51:30]# Query => drop query
+
+[2022-08-02 10:51:30]# Query => SHOW CREATE TABLE `vaani_predictive_action_history`
+
+[2022-08-02 10:51:31]# Query => drop query
+
+[2022-08-02 10:51:31]# Query => SHOW CREATE TABLE `vaani_predictive_dial_detail`
+
+[2022-08-02 10:51:32]# Query => drop query
+
+[2022-08-02 10:51:32]# Query => SHOW CREATE TABLE `vaani_preview_dial_detail`
+
+[2022-08-02 10:51:33]# Query => drop query
+
+[2022-08-02 10:51:33]# Query => SHOW CREATE TABLE `vaani_rechurn_dispositions`
+
+[2022-08-02 10:51:33]# Query => drop query
+
+[2022-08-02 10:51:33]# Query => SHOW CREATE TABLE `vaani_rechurn_filter`
+
+[2022-08-02 10:51:34]# Query => drop query
+
+[2022-08-02 10:51:34]# Query => SHOW CREATE TABLE `vaani_rechurn_map`
+
+[2022-08-02 10:51:35]# Query => drop query
+
+[2022-08-02 10:51:35]# Query => SHOW CREATE TABLE `vaani_redial_call`
+
+[2022-08-02 10:51:36]# Query => drop query
+
+[2022-08-02 10:51:36]# Query => SHOW CREATE TABLE `vaani_user_active_queues`
+
